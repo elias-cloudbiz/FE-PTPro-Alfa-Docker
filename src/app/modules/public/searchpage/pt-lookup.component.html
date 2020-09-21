@@ -1,0 +1,662 @@
+<div *ngIf="loading else loaded">
+    <div class="container" class="loader">
+        <h2 class="text-center">{{ "Wait a little..." | translate}}</h2>
+        <mat-progress-bar mode="indeterminate" style="color:orange"></mat-progress-bar>
+    </div>
+</div>
+<ng-template #loaded>
+    <mat-tab-group class="content-container container">
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <i id="controller" #controller class="fa fa-user fa-2x"></i>&nbsp; <h3>
+                    {{ "Personal Trainers" | translate}}</h3>
+            </ng-template>
+            <section id="search-pt wow fadeInDown" data-wow-delay="0.4s">
+                <div class="search-container">
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-xs-10 col-sm-10 col-md-11">
+                            <h4 id="SearchStatus" class="profile"><i class="fa fa-user"></i> {{ "Result:" | translate}}
+                                {{PTdataSize()}}
+                            </h4>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-1">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <div class="row">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-2 col-sm-3">
+                                    <div class="form-group has-error">
+                                        <div class="dropdown">
+                                            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                                                [ngClass]="{'btn-primary': containerActive['Popularity']}">{{ "Popularity" | translate}}
+                                                <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li *ngFor="let q of PTFilter_Popularity; let i=index"
+                                                    class="dropdown-item" (click)="PTSearch_Filter(q,'Popularity')"
+                                                    (click)="toggleActive(i, 'Popularity')"
+                                                    [ngClass]="{'btn-warning': selectedIndexArr['Popularity'] == i}">
+                                                    <a>{{q}}</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-3">
+                                    <div class="form-group has-error">
+                                        <div class="dropdown">
+                                            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                                                [ngClass]="{'btn-primary': containerActive['Experience']}">{{ "Experience" | translate}}
+                                                <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li *ngFor="let q of PTFilter_Experience; let i=index"
+                                                    class="dropdown-item" (click)="PTSearch_Filter(q,'Experience')"
+                                                    (click)="toggleActive(i, 'Experience')"
+                                                    [ngClass]="{'btn-warning': selectedIndexArr['Experience'] == i}">
+                                                    <a>{{q}}</a></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-3">
+                                    <div class="form-group">
+                                        <div class="dropdown">
+                                            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                                                [ngClass]="{'btn-primary': qualificationToggle}">{{ "Qualifications" | translate}}
+                                                <span class="caret"></span></button>
+                                            <ul id="state" class="dropdown-menu">
+                                                <li *ngFor="let q of PTFilter_Qualifications" class="dropdown-item"
+                                                    (click)="PTSearch_Filter(q,'Qualifications')"
+                                                    (click)="toggleByName(q)"
+                                                    [ngClass]="{'btn-warning': nameContainer[q] === 1}"><a>{{q}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-3">
+                                    <div class="form-group">
+
+                                        <div class="dropdown">
+                                            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                                                [ngClass]="{'btn-primary': containerActive['city']}">{{ "City" | translate}}
+                                                <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li *ngFor="let City of PTFilter_Cities; let i=index"
+                                                    class="dropdown-item" (click)="PTSearch_Filter(City,'City')"
+                                                    (click)="toggleActive(i, 'city')"
+                                                    [ngClass]="{'btn-warning': selectedIndexArr['city'] == i}">
+                                                    <a>{{City}}</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-6">
+                                    <div class="form-group">
+
+                                        <div class="dropdown">
+                                            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                                                [ngClass]="{'btn-primary': containerActive['club']}">{{ "Fitness Club" | translate}}
+                                                <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li *ngFor="let data of PTFilter_Center; let i=index"
+                                                    class="dropdown-item" (click)="PTSearch_Filter(data,'Club')"
+                                                    (click)="toggleActive(i, 'club')"
+                                                    [ngClass]="{'btn-warning': selectedIndexArr['club'] == i}">
+                                                    <a>{{data}}</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--Next search row!-->
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <div class="row">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-2 col-sm-3">
+                                    <div class="form-group has-error">
+                                        <div class="dropdown">
+                                            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                                                [ngClass]="{'btn-primary': containerActive['Education']}">{{ "Education" | translate}}
+                                                <span class="caret"></span></button>
+                                            <ul id="education" class="dropdown-menu">
+                                                <li *ngFor="let q of PTFilter_Education; let i=index"
+                                                    class="dropdown-item" (click)="PTSearch_Filter(q,'Education')"
+                                                    (click)="toggleActive(i, 'Education')"
+                                                    [ngClass]="{'btn-warning': selectedIndexArr['Education'] == i}">
+                                                    <a>{{q}}</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-3">
+                                    <div class="form-group has-error">
+                                        <div class="dropdown">
+                                            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                                                [ngClass]="{'btn-primary': containerActive['Gender']}">{{ "Gender" | translate}}
+                                                <span class="caret"></span></button>
+                                            <ul id="gender" class="dropdown-menu">
+                                                <li *ngFor="let q of PTFilter_Gender; let i=index" class="dropdown-item"
+                                                    (click)="PTSearch_Filter(q,'Gender')"
+                                                    (click)="toggleActive(i, 'Gender')"
+                                                    [ngClass]="{'btn-warning': selectedIndexArr['Gender'] == i}">
+                                                    <a>{{q}}</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-3">
+                                    <div class="form-group">
+                                        <div class="dropdown">
+                                            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                                                [ngClass]="{'btn-primary': containerActive['GroupTr']}">{{ "Group training" | translate}}
+                                                <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li *ngFor="let q of PTFilter_GroupTr; let i=index"
+                                                    class="dropdown-item" (click)="PTSearch_Filter(q,'GroupTr')"
+                                                    (click)="toggleActive(i, 'GroupTr')"
+                                                    [ngClass]="{'btn-warning': selectedIndexArr['GroupTr'] == i}">
+                                                    <a>{{q}}</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2 col-sm-6">
+                                    <div class="form-group">
+
+                                        <div class="dropdown">
+                                            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                                                [ngClass]="{'btn-primary': containerActive['Positiontype']}">{{ "Position type" | translate}}
+                                                <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li *ngFor="let q of PTFilter_Positiontype; let i=index"
+                                                    class="dropdown-item" (click)="PTSearch_Filter(q,'Positiontype')"
+                                                    (click)="toggleActive(i, 'Positiontype')"
+                                                    [ngClass]="{'btn-warning': selectedIndexArr['Positiontype'] == i}">
+                                                    <a>{{q}}</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-6">
+                                    <div class="form-group">
+
+                                        <div class="dropdown">
+                                            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                                                [ngClass]="{'btn-primary': containerActive['Meetup']}">{{ "Meetup" | translate}}
+                                                <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li *ngFor="let q of PTFilter_Meetup; let i=index" class="dropdown-item"
+                                                    (click)="PTSearch_Filter(q,'Meetup')"
+                                                    (click)="toggleActive(i, 'Meetup')"
+                                                    [ngClass]="{'btn-warning': selectedIndexArr['Meetup'] == i}">
+                                                    <a>{{q}}</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-2 col-sm-3">
+                            <a id="resetall" style="cursor: pointer"><i class="fa fa-eraser"></i>
+                                {{ "Reset" | translate}}</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <h3 class="text-center" style="margin-bottom: 10px;"><i class="fa fa-search"></i>
+                                {{ "Search" | translate}}</h3>
+                        </div>
+
+                        <div class="col-md-1"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <input placeholder="{{ 'Search by name' | translate}}" class="form-control text-center"
+                                    name="name" type="name" [(ngModel)]="name" style="border-color: black">
+                            </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+                </div>
+            </section>
+            <!-- PT List -->
+            <section id="trainers">
+                <div id="elem-container" class="content-container container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="section-title text-center">
+                                <h2>{{ "SEARCH: PT" | translate}}</h2>
+                                <p>{{ "Look for personal trainers in your region" | translate}}.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Search elements by rows!-->
+                    <div class="row">
+                        <div *ngFor="let PT of PTPagerItems | filter: name">
+                            <div class="col-md-6" routerLink="/pt/{{getUrlUserName(PT.name)}}" style="cursor: pointer;">
+                                <div class="trainer-list wow fadeInUp" data-wow-delay="0.1s">
+                                    <div class="col-md-3">
+                                        <img class="img-rounded"
+                                            src="https://skyinformatics.biz/images/avatar/height_avatar.png">
+                                        <div class="trainer-overlay">
+                                            <div class="overlay-inner">
+                                                <!-- None -->
+                                            </div>
+                                            <div class="trainer-content" style="padding:5px 10px 0px 10px">
+                                                <h4 style="color:white"> <i class="fa fa-star"></i>
+                                                    {{ "Rating" | translate}}
+                                                    {{PT.rating}}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="trainer-list wow fadeInUp border" data-wow-delay="0.4s">
+                                            <h3><i class="fa fa-user"></i> {{PT.name}}</h3>
+                                            <div class="row details">
+                                                <div class="col-md-3">
+                                                    <h4><b>{{ "Qualification" | translate}}:</b></h4>
+                                                </div>
+                                                <div *ngFor="let Q of PT['qualifications']" class="col-md-3">
+                                                    <h5><i class="fa fa-check-circle" style="color:#f65e13"></i> {{Q}}
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                            <h6 class="details">
+                                                <div class="row details">
+                                                    <div class="col-md-3"><b>{{ "Region" | translate}}</b></div>
+                                                    <div class="col-md-3">{{replaceFylke(PT.state)}}</div>
+                                                    <div class="col-md-3"><b>{{ "Experience" | translate}}</b></div>
+                                                    <div class="col-md-3">{{PT.yearexp}} år</div>
+                                                </div>
+                                                <div class="row details">
+                                                    <div class="col-md-3"><b>{{ "City" | translate}}</b></div>
+                                                    <div class="col-md-3">{{PT.city}}</div>
+                                                    <div class="col-md-3"><b>{{ "Group training" | translate}}</b></div>
+                                                    <div class="col-md-3">{{convertBin2String(PT.group)}}</div>
+
+                                                </div>
+                                                <div class="row details">
+                                                    <div class="col-md-3"><b>{{ "Fitness club" | translate}}</b></div>
+                                                    <div class="col-md-3">{{PT.club}}</div>
+                                                    <div class="col-md-3"><b>{{ "Position" | translate}}</b></div>
+                                                    <div class="col-md-3">{{PT.jobposition}}</div>
+
+                                                </div>
+                                                <div class="row details">
+                                                    <div class="col-md-3"><b>{{ "Education" | translate}}</b></div>
+                                                    <div class="col-md-3">{{convertBin2String(PT.pteducation)}}</div>
+                                                    <div class="col-md-3"><b>{{ "Meetup" | translate}}</b></div>
+                                                    <div class="col-md-3">{{PT.meetup}}</div>
+                                                </div>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row paging-row center">
+                        <ul *ngIf="PTPager.pages && PTPager.pages.length" class="pagination cursorpaging">
+                            <li>
+                                <a [ngClass]="{disabled:PTPager.currentPage === 1}"
+                                    (click)="PT_InitializePager(1)">{{ "First page" | translate}}</a>
+                            </li>
+                            <li *ngFor="let upager of PTPager.pages"
+                                [ngClass]="{active:PTPager.currentPage === PTPager}">
+                                <a (click)="PT_InitializePager(upager)">{{upager}}</a>
+                            </li>
+                            <li>
+                                <a [ngClass]="{disabled:PTPager.currentPage === PTPager.totalPages}"
+                                    (click)="PT_InitializePager(upager.totalPages)">{{ "Last page" | translate}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </mat-tab>
+
+        <!--Here comes healthplans section -->
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <i class="fa fa-medkit fa-2x"></i>&nbsp;<h3> {{ "Training and healthplans" | translate}}</h3>
+            </ng-template>
+            <div class="search-container">
+                <section id="search-pt wow fadeInDown" data-wow-delay="0.4s">
+                    <div class="search-container">
+                        <div class="row">
+
+                            <div class="col-xs-10 col-sm-10 col-md-11">
+                                <h4 class="profile"><i class="fa fa-medkit"></i> {{ "Amount:" | translate}}
+                                    {{HPdataSize()}}</h4>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-3">
+                                        <div class="form-group has-error">
+                                            <div class="dropdown">
+                                                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                                                    [ngClass]="{'btn-primary': containerActive['HPFilter_Type']}">{{ "Tailor type" | translate}}
+                                                    <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                    <li *ngFor="let q of HPFilter_Type; let i=index"
+                                                        class="dropdown-item" (click)="HPSearch_Filter(q,'Type')"
+                                                        (click)="toggleActive(i, 'HPFilter_Type')"
+                                                        [ngClass]="{'btn-warning': selectedIndexArr['HPFilter_Type'] == i}">
+                                                        <a>{{q}}</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3">
+                                        <div class="form-group has-error">
+                                            <div class="dropdown">
+                                                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                                                    [ngClass]="{'btn-primary': containerActive['HPFilter_Typeplan']}">{{ "Plan type" | translate}}
+                                                    <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                    <li *ngFor="let q of HPFilter_Typeplan; let i=index"
+                                                        class="dropdown-item" (click)="HPSearch_Filter(q,'Typeplan')"
+                                                        (click)="toggleActive(i, 'HPFilter_Typeplan')"
+                                                        [ngClass]="{'btn-warning': selectedIndexArr['HPFilter_Typeplan'] == i}">
+                                                        <a>{{q}}</a></li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3">
+                                        <div class="form-group">
+                                            <div class="dropdown">
+                                                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                                                    [ngClass]="{'btn-primary': qualificationToggle}">{{ "health goal" | translate}}
+                                                    <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                    <li *ngFor="let q of HPFilter_Healthcategory" class="dropdown-item"
+                                                        (click)="HPSearch_Filter(q,'Healthcategory')"
+                                                        (click)="toggleByName(q)"
+                                                        [ngClass]="{'btn-warning': nameContainer[q] === 1}"><a>{{q}}</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3">
+                                        <div class="form-group">
+
+                                            <div class="dropdown">
+                                                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                                                    [ngClass]="{'btn-primary': containerActive['city']}">{{ "Popularity" | translate}}
+                                                    <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                    <li *ngFor="let q of HPFilter_Popularity; let i=index"
+                                                        class="dropdown-item" (click)="PTSearch_Filter(q,'Popularity')"
+                                                        (click)="toggleActive(i, 'HPFilter_Popularity')"
+                                                        [ngClass]="{'btn-warning': selectedIndexArr['HPFilter_Popularity'] == i}">
+                                                        <a>{{q}}</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--Next HP search row!-->
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <div class="row">
+
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="form-group">
+
+                                            <div class="dropdown">
+                                                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                                                    [ngClass]="{'btn-primary': containerActive['club']}">{{ "Height class" | translate}}
+                                                    <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                    <li *ngFor="let data of PTFilter_Center; let i=index"
+                                                        class="dropdown-item" (click)="PTSearch_Filter(data,'Club')"
+                                                        (click)="toggleActive(i, 'club')"
+                                                        [ngClass]="{'btn-warning': selectedIndexArr['club'] == i}">
+                                                        <a>{{data}}</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3">
+                                        <div class="form-group has-error">
+                                            <div class="dropdown">
+                                                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                                                    [ngClass]="{'btn-primary': containerActive['Education']}">{{ "Weight class" | translate}}
+                                                    <span class="caret"></span></button>
+                                                <ul id="education" class="dropdown-menu">
+                                                    <li *ngFor="let q of PTFilter_Education; let i=index"
+                                                        class="dropdown-item" (click)="PTSearch_Filter(q,'Education')"
+                                                        (click)="toggleActive(i, 'Education')"
+                                                        [ngClass]="{'btn-warning': selectedIndexArr['Education'] == i}">
+                                                        <a>{{q}}</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3">
+                                        <div class="form-group has-error">
+                                            <div class="dropdown">
+                                                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                                                    [ngClass]="{'btn-primary': containerActive['Gender']}">{{ "Age class" | translate}}
+                                                    <span class="caret"></span></button>
+                                                <ul id="gender" class="dropdown-menu">
+                                                    <li *ngFor="let q of PTFilter_Gender; let i=index"
+                                                        class="dropdown-item" (click)="PTSearch_Filter(q,'Gender')"
+                                                        (click)="toggleActive(i, 'Gender')"
+                                                        [ngClass]="{'btn-warning': selectedIndexArr['Gender'] == i}">
+                                                        <a>{{q}}</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3">
+                                        <div class="form-group">
+                                            <div class="dropdown">
+                                                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                                                    [ngClass]="{'btn-primary': containerActive['GroupTr']}">{{ "Price class" | translate}}
+                                                    <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                    <li *ngFor="let q of PTFilter_GroupTr; let i=index"
+                                                        class="dropdown-item" (click)="PTSearch_Filter(q,'GroupTr')"
+                                                        (click)="toggleActive(i, 'GroupTr')"
+                                                        [ngClass]="{'btn-warning': selectedIndexArr['GroupTr'] == i}">
+                                                        <a>{{q}}</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-2 col-sm-3">
+                                <a style="cursor: pointer"><i class="fa fa-eraser"></i> {{ "Reset" | translate}}</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3 class="text-center" style="margin-bottom: 10px;"><i class="fa fa-search"></i>
+                                    {{ "Search an healtplan" | translate}}</h3>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input placeholder="{{ 'Search in title and description' | translate}}" class="form-control text-center"
+                                        style="border-color: black">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+                <!-- HP List -->
+                <section id="trainers">
+                    <div id="elem-container" class="content-container container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="section-title text-center">
+                                    <h2>{{ "SEARCH: Healthplan" | translate}}</h2>
+                                    <p>
+                                        {{ "Find a health plan or health package that includes either a diet, exercise or combination that suits you. Health plan may include guidance and hours." | translate}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Search HP elements by rows!-->
+                        <div class="row">
+                            <div *ngFor="let HP of HPPagerItems | filter: name ">
+                                <div class="col-md-6" style="cursor: pointer;">
+                                    <div class="trainer-list wow fadeInUp" data-wow-delay="0.1s">
+                                        <div class="col-md-3">
+                                            <img class="img-circle"
+                                                src="https://image.flaticon.com/icons/png/128/88/88080.png">
+                                            <div class="trainer-overlay">
+                                                <div class="overlay-inner">
+                                                    <!-- None -->
+                                                </div>
+
+                                            </div>
+                                            <div class="text-center" style="padding:5px 10px 0px 10px">
+                                                <h4 style="color:black">{{ "Rating" | translate}} <i
+                                                        class="fa fa-star"></i>{{HP.rating}}</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="trainer-list wow fadeInUp border" data-wow-delay="0.4s">
+                                                <h3><i class="fa fa-medkit"></i> {{HP.title}}</h3>
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <b>{{ "Healthplan" | translate}}:</b>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <i class="fa fa-check-circle" style="color:#f65e13"></i>
+                                                        {{HP.type}}
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <b>{{ "Type" | translate}}:</b>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <i class="fa fa-check-circle" style="color:#f65e13"></i>
+                                                        {{HP.type_plan}}
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <b>{{ "Goal" | translate}}:</b>
+                                                    </div>
+                                                    <div class="col-md-4 descriptive">
+                                                        <i class="fa fa-check-circle" style="color:#f65e13"></i>
+                                                        {{HP.health_category}}
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <b>{{ "Price" | translate}}:</b>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <i class="fa fa-check-circle" style="color:#f65e13"></i>
+                                                        {{HP.price}}
+                                                    </div>
+                                                </div>
+
+
+                                                <h6 class="details">
+                                                    <div class="row">
+                                                        <div class="col-md-12"><b>{{ "Description" | translate}}:</b></div>
+                                                    </div>
+                                                    <div class="row ">
+                                                        <div class="col-md-12">
+                                                            <h5>{{HP.description}}</h5>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-3"><b>{{ "Follow-up" | translate}}:</b></div>
+                                                        <div class="col-md-3">{{ convertBin2String(HP.follow_up)}}</div>
+                                                        <div class="col-md-2"><b>{{ "Region" | translate}}</b></div>
+                                                        <div class="col-md-4">{{ HP.state }}</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-2"><b>{{ "Included" | translate}}:</b></div>
+                                                        <div class="col-md-4 descriptive">{{HP.follow_up_data}}</div>
+                                                        <div class="col-md-2"><b>PT:</b></div>
+                                                        <div class="col-md-4"><i class="fa fa-user"></i> {{HP.name}}
+                                                        </div>
+                                                    </div>
+
+                                                </h6>
+                                                <div class="row">
+
+                                                    <div class="col-md-12">
+
+                                                        <h5 class="text-center" style="font-size:12px"> <i
+                                                                class="fas fa-hand-pointer"></i> {{ "Click for more details" | translate}}
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row paging-row text-center">
+                            <div class="col-md-12">
+                                <ul *ngIf="HPPager.pages && HPPager.pages.length" class="pagination cursorpaging ">
+                                    <li>
+                                        <a [ngClass]="{disabled:HPPager.currentPage === 1}"
+                                            (click)="HP_InitializePager(1)">{{ "First page" | translate}}</a>
+                                    </li>
+                                    <li *ngFor="let upager of HPPager.pages"
+                                        [ngClass]="{active:HPPager.currentPage === HPPager}">
+                                        <a (click)="HP_InitializePager(upager)">{{upager}}</a>
+                                    </li>
+                                    <li>
+                                        <a [ngClass]="{disabled:HPPager.currentPage === HPPager.totalPages}"
+                                            (click)="HP_InitializePager(upager.totalPages)">{{ "Last page" | translate}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </mat-tab>
+
+    </mat-tab-group>
+</ng-template>

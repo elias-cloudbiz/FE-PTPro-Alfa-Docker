@@ -1,0 +1,122 @@
+<div class="body">
+    <div class="title">
+        <h2 mat-dialog-title>ADD TRAINING ACTIVITY</h2>
+    </div>   
+
+    <div class="">    
+          <div class="col-md-6 left-card">
+              <div class="row">
+                  <mat-form-field>
+                      <input matInput
+                            placeholder="Title"
+                            [(ngModel)]="trainingData.title" 
+                            [ngModelOptions]="{standalone: true}" 
+                            autocomplete="profile-title" required
+                      >
+                  </mat-form-field>
+              </div>
+              
+              <div class="row">
+                  <mat-form-field >
+                      <textarea matInput placeholder="Description" style="min-height: 150px"
+                            [(ngModel)]="trainingData.description" 
+                            [ngModelOptions]="{standalone: true}" 
+                            autocomplete="profile-description" required>
+                      </textarea>
+                    </mat-form-field>
+              </div>
+      
+              <div class="row">
+                <mat-form-field>
+                  <input matInput [matDatepicker]="picker" placeholder="Start_datetime" 
+                        [(ngModel)]="trainingData.created_at" 
+                        [ngModelOptions]="{standalone: true}" 
+                        required>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </div>
+              
+              <div class="row">
+                <mat-form-field>
+                  <input matInput placeholder="Location"
+                            [(ngModel)]="trainingData.location" 
+                            [ngModelOptions]="{standalone: true}" 
+                            autocomplete="profile-link" required>
+                </mat-form-field>
+              </div>
+                   
+              <div class="row">
+                <mat-form-field>
+                  <input matInput placeholder="Duration"
+                            [(ngModel)]="trainingData.duration" 
+                            [ngModelOptions]="{standalone: true}" 
+                            autocomplete="profile-link" required>
+                </mat-form-field>
+              </div>
+        </div>
+
+        <div class="col-md-6 right-card">
+              <div class="row">
+                  <mat-form-field>
+                    <input matInput placeholder="Intensity"
+                              [(ngModel)]="trainingData.intensity" 
+                              [ngModelOptions]="{standalone: true}" 
+                              autocomplete="profile-link" required>
+                  </mat-form-field>
+                </div>      
+                
+                <div class="row">
+                  <mat-form-field>
+                    <input matInput placeholder="Choreography"
+                              [(ngModel)]="trainingData.choreography" 
+                              [ngModelOptions]="{standalone: true}" 
+                              autocomplete="profile-link" required>
+                  </mat-form-field>
+                </div>
+                  
+                <div class="row">
+                  <mat-form-field>
+                    <input matInput placeholder="Endurance"
+                              [(ngModel)]="trainingData.endurance" 
+                              [ngModelOptions]="{standalone: true}" 
+                              autocomplete="profile-link" required>
+                  </mat-form-field>
+                </div>
+                  
+                <div class="row">
+                  <mat-form-field>
+                    <input matInput placeholder="Strength"
+                              [(ngModel)]="trainingData.strength" 
+                              [ngModelOptions]="{standalone: true}" 
+                              autocomplete="profile-link" required>
+                  </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field>
+                      <input matInput placeholder="Flexibility"
+                                [(ngModel)]="trainingData.flexibility" 
+                                [ngModelOptions]="{standalone: true}" 
+                                autocomplete="profile-link" required>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field>
+                      <input matInput placeholder="Balance"
+                                [(ngModel)]="trainingData.balance" 
+                                [ngModelOptions]="{standalone: true}" 
+                                autocomplete="profile-link" required>
+                    </mat-form-field>
+                </div>
+        </div>        
+     
+      </div>
+    
+    
+    <mat-dialog-actions style="float:right">
+        <button class="mat-raised-button"(click)="close()">Close</button>
+        <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+    </mat-dialog-actions>
+</div>
+
+

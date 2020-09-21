@@ -1,0 +1,23 @@
+.next-trigger {
+    font-size: 22px;
+}
+
+
+.icon-n-t{
+    font-size: 38px;
+}
+
+li{
+    font-family:'Dosis', sans-serif;
+}
+
+.package{
+    border: orange solid 1px;
+    padding: 5px;
+
+
+}
+
+span{
+    text-transform: none !important;
+}

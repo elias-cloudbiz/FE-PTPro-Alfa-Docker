@@ -1,0 +1,138 @@
+<div *ngIf="this.profile.loading else loaded">
+    <div class="container" class="loader">
+        <h2 class="text-center">Vent litt...</h2>
+        <mat-progress-bar mode="indeterminate" style="color:orange"></mat-progress-bar>
+    </div>
+</div>
+<ng-template #loaded>
+    <div *ngIf="this.profile.PTProfile">
+        <section id="trainers">
+            <!--             <h4 style='color:#ff9900' class='text-center'> <i class='fa fa-warning'></i> Profilen er ikke verifisert.</h4> -->
+            <div class="content-container container">
+                <div id="profilesection" #profilesection class="row">
+                    <div class="section-title text-center wow fadeInUp" data-wow-delay="0.1s">
+                        <h2>{{'PT Profile' | translate}}: {{this.profile.PTProfile.name | uppercase}} </h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-7 col-md-3">
+                        <div class="trainer-list wow fadeInUp" data-wow-delay="0.2s">
+
+                            <img src="https://skyinformatics.biz/images/avatar/height_avatar.png" alt="Personal trainer ">
+                            <div class="trainer-overlay">
+
+                            </div>
+                            <div class="trainer-content">
+                                <h3><i class="fa fa-star"></i> {{this.profile.PTRating.sum }}</h3>
+                            </div>
+                        </div>
+                        <div class="input-group wow fadeInUp" data-wow-delay="0.5s" style="width:100%">
+                            <table style="width: inherit">
+                                <tr>
+                                    <td><input id="foo" style="width:99%"
+                                            value="trening.fit/pt/{{this.profile.getUrlName()}}">
+                                    <td>
+                                    <td> <button id="clip" data-clipboard-target="#foo">
+                                            <i class="fa fa-clipboard" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="wow fadeInUp" data-wow-delay="0.8s" style="margin-top: 10px;">
+                            <em>{{'Share' | translate}}: </em>
+                            <a href="#" class="fa fa-facebook fa-tr "
+                                href="https://plus.google.com/share?url={url}&text={text}&hl={language_code}"></a>
+                            <a href="#" class="fa fa-instagram fa-tr"></a>
+                            <a href="#" class="fa fa-google fa-tr"></a>
+                            <a href="#" class="fa fa-youtube fa-tr"></a>
+                            <a href="#" class="fa fa-twitter fa-tr"></a>
+                            <a href="#" class="fa fa-skype fa-tr"></a>
+                            <a href="#" class="fa fa-android fa-tr"></a>
+
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-7 col-md-9 wow fadeInUp" data-wow-delay="0.3s">
+
+                        <div class="tab-wrap">
+
+                            <!-- Profile Tabs and their properties -->
+                            <input type="radio" class="tab col-xs-10">
+                            <label for="tab1" class="col-xs-10 col-md-3 fadeIn" (click)="switch(0)"
+                                [ngClass]="activeClass(0)">
+                                <h3><i class="fa fa-user"></i> {{'About PT' | translate}}</h3>
+                            </label>
+
+                            <input type="radio" class="tab col-xs-10">
+                            <label for="tab2" class="tab-col col-xs-10 col-md-3" (click)="switch(1)"
+                                [ngClass]="activeClass(1)">
+                                <h3><i class="fa fa-calendar"></i>  {{'Schedule' | translate}} </h3>
+                            </label>
+
+                            <input type="radio" class="tab col-xs-10">
+                            <label for="tab3" class="col-xs-10 col-md-3" (click)="switch(2)" [ngClass]="activeClass(2)">
+                                <h3><i class="fa fa-star"></i> {{'Reviews' | translate}} ({{this.profile.reviewLength()}}) </h3>
+                            </label>
+
+                            <input type="radio" class="tab col-xs-10">
+                            <label for="tab5" class="col-xs-10 col-md-6" (click)="switch(4)" [ngClass]="activeClass(4)">
+                                <h3><i class="fa fa-medkit"></i> {{'Health services' | translate}} ({{this.profile.planLength()}})</h3>
+                            </label>
+
+                            <input type="radio" class="tab col-xs-10">
+                            <label for="tab4" class="col-xs-10 col-md-6" (click)="switch(3)" [ngClass]="activeClass(3)">
+                                <h3><i class="fa fa-envelope"></i> {{'Contacts and Media' | translate}}</h3>
+                            </label>
+
+
+
+                        </div>
+                        <hr>
+                        <div [ngSwitch]="this.Tab">
+                            <div class="fadeIn tab__content" *ngSwitchDefault>
+                                <!--START Default -->
+                                <app-main></app-main>
+                                <!--END Default -->
+                            </div>
+                            <div class="fadeIn tab__content" *ngSwitchCase="0">
+                                <!-- START Main -->
+                                <app-main></app-main>
+                                <!-- END Main -->
+                            </div>
+
+                            <div class="fadeIn tab__content" *ngSwitchCase="1">
+                                <!-- START Scheduler -->
+                                <app-scheduler></app-scheduler>
+                                <!-- END Scheduler -->
+                            </div>
+                            <div class="fadeIn tab__content" *ngSwitchCase="2">
+                                <!-- START Reviews -->
+                                <app-reviews></app-reviews>
+                                <!-- END Reviews -->
+                            </div>
+                            <div class="fadeIn tab__content" *ngSwitchCase="3">
+                                <!-- START Contacts -->
+                                <app-contacts></app-contacts>
+                                <!-- END Contacts -->
+                            </div>
+                            <div class="fadeIn tab__content" *ngSwitchCase="4">
+                                <!-- START Plans -->
+                                <app-plans></app-plans>
+                                <!-- END Plans -->
+                            </div>
+                            <div class="fadeIn tab__content" *ngSwitchCase="5">
+                                <!-- START Instagram -->
+                                <app-media></app-media>
+                                <!-- END Instagram -->
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+</ng-template>

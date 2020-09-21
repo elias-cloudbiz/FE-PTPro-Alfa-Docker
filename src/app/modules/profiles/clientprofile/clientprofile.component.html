@@ -1,0 +1,179 @@
+<div>
+  <section id="trainers">
+    <!--             <h4 style='color:#ff9900' class='text-center'> <i class='fa fa-warning'></i> Profilen er ikke verifisert.</h4> -->
+    <div class="content-container container">
+      <div id="profilesection" #profilesection class="row">
+        <div class="section-title text-center wow fadeInUp" data-wow-delay="0.1s">
+          <h2>My profile: {{this.Name | uppercase}} </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-7 col-md-1">
+          <div class="trainer-list wow fadeInUp" data-wow-delay="0.2s">
+            <img src="https://clustertwo.cloudinfo.biz/images/null.jpeg" alt="Personal trainer ">
+            <div class="trainer-overlay">
+            </div>
+            <div class="trainer-content">
+
+            </div>
+          </div>
+          <div class="input-group wow fadeInUp" style="width:100%">
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-7 col-md-11 wow fadeInUp" >
+          <mat-tab-group>
+            <!-- General section for all users  -->
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <i class="fa fa-user fa-2x"></i>&nbsp;<h3> General </h3>
+              </ng-template>
+              <div class="container">
+                <h4 class="text-center"> <b>General data </b> <em> change and update your general user account
+                    information. </em> </h4>
+                <hr>
+                <!-- Field -->
+                <div class="row text-center">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-4">
+                    <mat-form-field>
+                      <input matInput placeholder="Firstname" formControlName="firstCtrl" value="{{Name}}" required>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4"></div>
+                </div>
+                <!-- Field -->
+                <div class="row text-center">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-4">
+                    <mat-form-field>
+                      <input matInput placeholder="Lastname" formControlName="firstCtrl" value="{{Name}}" required>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4"></div>
+                </div>
+                <!-- Field -->
+                <div class="row text-center">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-4">
+                    <mat-form-field>
+                      <mat-select [(value)]="session.Region" placeholder="Your region">
+                        <mat-option *ngFor="let a of session.Fylke" value="{{a}}">{{a}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4"></div>
+                </div>
+                <!-- Field -->
+                <div class="row text-center">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-4">
+                    <mat-form-field>
+                      <mat-select [(value)]="session.City" placeholder="Your City">
+                        <mat-option *ngFor="let b of session.Cities[session.Region]" value="{{b}}">{{b}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4"></div>
+                </div>
+                <!-- Field -->
+                <div class="row text-center">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-4">
+                    <mat-form-field>
+                      <input matInput placeholder="Country" formControlName="firstCtrl" value="Norway" required>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4"></div>
+                </div>
+                <!-- Field -->
+                <div class="row text-center">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-4">
+                    <mat-form-field>
+                      <input matInput placeholder="Email" formControlName="firstCtrl" value="demo@demo" required>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4"></div>
+                </div>
+                <!-- Field -->
+                <div class="row text-center">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-4">
+                    <mat-form-field>
+                      <input matInput placeholder="Phone" formControlName="firstCtrl" value="0000" required>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4"></div>
+                </div>
+                <!-- Field -->
+                <div class="row text-center">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-4">
+                    <mat-form-field>
+                      <input matInput placeholder="Password" formControlName="firstCtrl" required>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4"></div>
+                </div>
+                <!-- Field -->
+                <div class="row text-center">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-4">
+                    <mat-form-field>
+                      <input matInput placeholder="Verify password" formControlName="firstCtrl" required>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4"></div>
+                </div>
+              </div>
+            </mat-tab>
+            <!-- If user is client   -->
+            <div *ngIf="memberType == 'Client'">
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <i class="fa fa-user fa-2x"></i>&nbsp;<h3> My Health data</h3>
+                </ng-template>
+                <div class="container">
+                </div>
+              </mat-tab>
+            </div>
+            <!-- If user is seller -->
+            <div *ngIf="memberType == 'Seller'">
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <i class="fa fa-medkit fa-2x"></i>&nbsp;<h3> Public contact information</h3>
+                </ng-template>
+                <div class="search-container">
+
+                </div>
+              </mat-tab>
+              <!-- General section for all users  -->
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <i class="fa fa-medkit fa-2x"></i>&nbsp;<h3> Instagram </h3>
+                </ng-template>
+                <div class="search-container">
+
+                </div>
+              </mat-tab>
+              <!-- General section for all users  -->
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <i class="fa fa-medkit fa-2x"></i>&nbsp;<h3> Instagram </h3>
+                </ng-template>
+                <div class="search-container">
+
+                </div>
+              </mat-tab>
+
+            </div>
+
+          </mat-tab-group>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</div>

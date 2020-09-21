@@ -1,0 +1,162 @@
+<section>
+  <div class=" container" style="min-height: 500px">
+
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+      <mat-step>
+        <form>
+          <ng-template matStepLabel>INTRODUKSJON</ng-template>
+
+
+          <h2 class="text-center">Innmelding</h2>
+          <h4>Velkommen til til Norges nye forretings-orientert og sosial plattform for trenings aktive og
+            helsefaglig.</h4>
+
+          <h4>Trening.fit interaktiv web-applikasjon danner en ny profesjonell kanal mellom helsefaglige og
+            kunder, samt fremme dem for relevante og potensielle nye kunder. Vi åpner muligheter for å
+            utøve sine egne tjenester og nettverk via en og samme plattform.</h4>
+
+          <h4>Trening.fit er tett knyttet til Instagram og benytter seg av denne tjeneste for kunne markedsføre for
+            din aktiv livstil. Trening.fit benytter seg av teknikker som kan nå til potensielt flere tusen nye kunder
+            i ditt nær område.</h4>
+          <div class="text-center">
+            <button class="next-trigger" mat-button matStepperNext> <i
+                class="fa fa-arrow-circle-o-right fa-1x icon-n-t"></i>
+              Neste </button>
+          </div>
+
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>PERSONDATA</ng-template>
+          <div class="text-center">
+            <h4>For at vi skal kunne opprette din konto trenger vi noen generelle opplysninger om deg. Ikke korrekte
+              opplysinger kan medføre utestengelse.</h4>
+            <hr>
+            <mat-form-field>
+              <input matInput placeholder="Fornavn" formControlName="firstCtrl" required>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <input matInput placeholder="Etternavn" formControlName="firstCtrl" required>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <input matInput placeholder="E-post" formControlName="firstCtrl" required>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <input matInput placeholder="Mobil nummer" formControlName="firstCtrl" required>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field>
+              <mat-select [(value)]="session.Region" placeholder="{{session.Region}}">
+                <mat-option *ngFor="let a of session.Fylke" value="{{a}}">{{a}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <mat-select [(value)]="session.City" placeholder="{{session.City}}">
+                <mat-option *ngFor="let b of session.Cities[session.Region]" value="{{b}}">{{b}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br>
+            <div class="text-center">
+              <button class="next-trigger" mat-button matStepperPrevious> Tilbake </button>
+              <button class="next-trigger" mat-button matStepperNext> Neste </button>
+            </div>
+          </div>
+
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>MEDLEMSKAP</ng-template>
+
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <div class="">
+
+                <h3> Fortell litt om deg selv?</h3>
+                <p>Ditt medlemskap blir opprettet basert på dine valg!</p>
+             
+
+              </div>
+              <mat-form-field>
+                <mat-select [(value)]="MembershipValue" placeholder="{{Memberships[0]['viewValue']}}">
+                  <mat-option *ngFor="let a of Memberships" [value]="a.value" (click)="selectMembership(a.value)">
+                    {{a.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div *ngIf="MembershipValue == 'PT'">
+                <div *ngIf="MembershipPackage == 'Premium'" class="package">
+                  <h3>Et premium medlemskap inkluderer:</h3>
+                  <ul>
+                    <li>- Bli blant topp på forsidene</li>
+                    <li>- Bli søkbart i din region og område</li>
+                    <li>- Deltakelse i match og konkurranse på aktive PT</li>
+                  </ul>
+                </div>
+                <div *ngIf="MembershipPackage == 'Free'" class="package">
+               
+                  <h3>Et gratis medlemskap inkluderer :</h3>
+                  <ul>
+                    <li>- Et profesjonell profil og PT-link</li>
+                    <li>- Ønsker en profesjonell profil og markedsfører seg selv</li>
+                    <li>- Deltar ikke på søk, match og konkurranse</li>
+                  </ul>
+
+                </div>
+                <h4><b>Velg type medlemskap</b></h4>
+
+                <mat-form-field>
+                  <mat-select placeholder="{{PTMembership[0]['viewValue']}}">
+                    <mat-option *ngFor="let a of PTMembership" [value]="a.value"
+                      (click)="selectMembershipPackage(a.value)">
+                      {{a.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <hr>
+              <h3> Når er du født?</h3>
+              <mat-form-field>
+                <select matNativeControl required>
+                  <option value="volvo">1991</option>
+                  <option value="saab">1998</option>
+                  <option value="mercedes">1999</option>
+                  <option value="audi">2200</option>
+                </select>
+              </mat-form-field>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+
+
+
+          <div class="text-center">
+            <button class="next-trigger" mat-button matStepperPrevious>Back</button>
+            <button class="next-trigger" mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>FULLFØRELSE</ng-template>
+        You are now done.
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</section>

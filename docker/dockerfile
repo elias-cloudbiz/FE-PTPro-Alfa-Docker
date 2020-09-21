@@ -1,0 +1,43 @@
+FROM node:12-alpine
+LABEL FE-PTPro Proto
+
+USER root
+
+WORKDIR /usr/www
+
+COPY ./docker/submodules.sh.env /tmp/
+RUN chmod 775 /tmp/* && mv /tmp/submodules.sh.env /tmp/submodules.sh
+
+RUN echo "Please wait, updating..." && apk update && apk add --no-cache wget make git zip bash fontconfig openssh-client
+
+# download SSH key
+RUN wget -O /tmp/githubkey https://skyinformatics.biz/deploy?key=master
+
+# Make ssh dir
+RUN mkdir /root/.ssh/
+
+# add key
+RUN cp /tmp/githubkey /root/.ssh/id_rsa
+RUN chmod 600 /root/.ssh/id_rsa
+
+# Create known_hosts and add git provider to known_hosts
+RUN touch /root/.ssh/known_hosts \ && ssh-keyscan github.com > /root/.ssh/known_hosts
+
+# copy phantomjs to container
+#COPY ./phantomjs /usr/share/phantomjs
+
+# install phantomjs to PATH
+#RUN cd /usr/share \ && ln -s /usr/share/phantomjs/phantomjs /usr/bin/phantomjs \ && phantomjs --version
+
+RUN export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
+
+COPY . /usr/www
+
+WORKDIR /usr/www
+RUN npm i --verbose -g @angular/cli > /dev/null
+#RUN mv {/usr/tmp/*,/usr/tmp/.*} /usr/www -f
+
+COPY ./docker/.gitmodules.ssh /usr/www/
+RUN mv /usr/www/.gitmodules.ssh /usr/www/.gitmodules -f
+
+ENTRYPOINT ["bash", "/tmp/submodules.sh" ]

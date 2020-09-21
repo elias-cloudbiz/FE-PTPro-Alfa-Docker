@@ -1,0 +1,35 @@
+<div class="body">
+  <div class="title">
+      <h2 mat-dialog-title >ADD QUALIFICATION</h2>
+  </div>   
+
+  <mat-dialog-content >     
+      <div class="row">
+          <mat-form-field>
+              <input matInput
+                    placeholder="Title"
+                    [(ngModel)]="qualificationData.title" 
+                    [ngModelOptions]="{standalone: true}" 
+                    autocomplete="profile-title" required
+              >
+          </mat-form-field>
+      </div>
+      
+      <div class="row">
+          <mat-form-field >
+              <textarea matInput placeholder="Description" style="min-height: 150px"
+                    [(ngModel)]="qualificationData.description" 
+                    [ngModelOptions]="{standalone: true}" 
+                    autocomplete="profile-description" required>
+              </textarea>
+            </mat-form-field>
+      </div> 
+  </mat-dialog-content>  
+  
+  <mat-dialog-actions style="float:right">
+      <button class="mat-raised-button"(click)="close()">Close</button>
+      <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+  </mat-dialog-actions>
+</div>
+
+

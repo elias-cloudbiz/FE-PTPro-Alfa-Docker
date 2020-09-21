@@ -1,0 +1,253 @@
+<div class="body">
+    <div class="title">
+        <h2 mat-dialog-title >ADD PLAN</h2>
+    </div>   
+'
+    <mat-dialog-content >
+     
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field>
+                <input matInput
+                      placeholder="Title"
+                      [(ngModel)]="planData.title" 
+                      [ngModelOptions]="{standalone: true}" 
+                      autocomplete="profile-title" required
+                >
+            </mat-form-field>
+          </div>
+        
+          <div class="col-md-6">
+            <mat-form-field >
+                <textarea matInput placeholder="Description" style="min-height: 90px"
+                      [(ngModel)]="planData.description" 
+                      [ngModelOptions]="{standalone: true}" 
+                      autocomplete="profile-description" required>
+                </textarea>
+              </mat-form-field>
+       
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Created_at" 
+                    [(ngModel)]="planData.created_at" 
+                    [ngModelOptions]="{standalone: true}" 
+                    required>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-6">
+              <mat-form-field>
+                <input matInput [matDatepicker]="pickerTo" placeholder="Updated_at"
+                        [(ngModel)]="planData.updated_at" 
+                        [ngModelOptions]="{standalone: true}" 
+                        required>
+                <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+                <mat-datepicker #pickerTo></mat-datepicker>
+              </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+              <mat-form-field>
+                  <input matInput
+                        placeholder="Age"
+                        [(ngModel)]="planData.age" 
+                        [ngModelOptions]="{standalone: true}" 
+                        autocomplete="profile-title" required
+                  >
+              </mat-form-field>
+            </div>
+          
+            <div class="col-md-6">
+              <mat-form-field >
+                  <input matInput
+                        placeholder="Gender"
+                        [(ngModel)]="planData.gender" 
+                        [ngModelOptions]="{standalone: true}" 
+                        autocomplete="profile-title" required
+                  >
+              </mat-form-field>         
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+              <mat-form-field>
+                  <input matInput
+                        placeholder="Follow_up"
+                        [(ngModel)]="planData.follow_up" 
+                        [ngModelOptions]="{standalone: true}" 
+                        autocomplete="profile-title" required
+                  >
+              </mat-form-field>
+            </div>
+          
+            <div class="col-md-6">
+              <mat-form-field >
+                  <input matInput
+                        placeholder="Follow_up_data"
+                        [(ngModel)]="planData.follow_up_data" 
+                        [ngModelOptions]="{standalone: true}" 
+                        autocomplete="profile-title" required
+                  >
+              </mat-form-field>         
+            </div>
+        </div>
+
+        <div class="row one">
+            <div class="eachCol">
+              <mat-form-field class="matWidth">
+                  <input matInput 
+                        placeholder="Allergies"
+                        [(ngModel)]="planData.allergies" 
+                        [ngModelOptions]="{standalone: true}" 
+                        autocomplete="profile-title" required
+                  >
+              </mat-form-field>
+            </div>
+          
+            <div class="eachCol" style="margin:auto">
+              <mat-form-field class="matWidth">
+                  <input matInput 
+                        placeholder="Calories"
+                        [(ngModel)]="planData.calories" 
+                        [ngModelOptions]="{standalone: true}" 
+                        autocomplete="profile-title" required
+                  >
+              </mat-form-field >         
+            </div>
+
+            <div class="eachCol">
+                <mat-form-field class="matWidth">
+                    <input matInput 
+                          placeholder="Health_category"
+                          [(ngModel)]="planData.health_category" 
+                          [ngModelOptions]="{standalone: true}" 
+                          autocomplete="profile-title" required
+                    >
+                </mat-form-field>         
+            </div>
+        </div>
+
+        <div class="row one">
+            <div class="eachCol">
+              <mat-form-field class="matWidth">
+                  <input matInput
+                        placeholder="Height"
+                        [(ngModel)]="planData.height" 
+                        [ngModelOptions]="{standalone: true}" 
+                        autocomplete="profile-title" required
+                  >
+              </mat-form-field>
+            </div>
+          
+            <div class="eachCol" style="margin:auto">
+              <mat-form-field class="matWidth">
+                  <input matInput
+                        placeholder="ItemType"
+                        [(ngModel)]="planData.itemType" 
+                        [ngModelOptions]="{standalone: true}" 
+                        autocomplete="profile-title" required
+                  >
+              </mat-form-field>         
+            </div>
+
+            <div class="eachCol">
+                <mat-form-field class="matWidth">
+                    <input matInput
+                          placeholder="Price"
+                          [(ngModel)]="planData.price" 
+                          [ngModelOptions]="{standalone: true}" 
+                          autocomplete="profile-title" required
+                    >
+                </mat-form-field>         
+              </div>
+        </div>
+
+        <div class="row one">
+            <div class="eachCol">
+              <mat-form-field class="matWidth">
+                  <input matInput
+                        placeholder="Ptid"
+                        [(ngModel)]="planData.ptid" 
+                        [ngModelOptions]="{standalone: true}" 
+                        autocomplete="profile-title" required
+                  >
+              </mat-form-field>
+            </div>
+            
+            <div class="eachCol" style="margin:auto">
+              <mat-form-field class="matWidth">
+                  <input matInput
+                        placeholder="Rating"
+                        [(ngModel)]="planData.rating" 
+                        [ngModelOptions]="{standalone: true}" 
+                        autocomplete="profile-title" required
+                  >
+              </mat-form-field>         
+            </div>
+
+            <div class="eachCol">
+                <mat-form-field class="matWidth">
+                    <input matInput
+                          placeholder="Type"
+                          [(ngModel)]="planData.type" 
+                          [ngModelOptions]="{standalone: true}" 
+                          autocomplete="profile-title" required
+                    >
+                </mat-form-field>         
+            </div>
+        </div>
+
+        <div class="row one">
+            <div class="eachCol">
+              <mat-form-field class="matWidth">
+                  <input matInput
+                        placeholder="Type_plan"
+                        [(ngModel)]="planData.type_plan" 
+                        [ngModelOptions]="{standalone: true}" 
+                        autocomplete="profile-title" required
+                  >
+              </mat-form-field>
+            </div>
+            
+            <div class="eachCol" style="margin:auto">
+              <mat-form-field class="matWidth">
+                  <input matInput
+                        placeholder="Vegetar"
+                        [(ngModel)]="planData.vegetar" 
+                        [ngModelOptions]="{standalone: true}" 
+                        autocomplete="profile-title" required
+                  >
+              </mat-form-field>         
+            </div>
+
+            <div class="eachCol">
+                <mat-form-field class="matWidth">
+                    <input matInput
+                          placeholder="Weight"
+                          [(ngModel)]="planData.weight" 
+                          [ngModelOptions]="{standalone: true}" 
+                          autocomplete="profile-title" required
+                    >
+                </mat-form-field>         
+            </div>
+        </div>
+
+    </mat-dialog-content>
+    
+    
+    <mat-dialog-actions style="float:right">
+        <button class="mat-raised-button"(click)="close()">Close</button>
+        <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+    </mat-dialog-actions>
+</div>
+
+

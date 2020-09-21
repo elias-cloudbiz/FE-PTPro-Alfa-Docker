@@ -1,0 +1,129 @@
+<!-- Reviews -->
+<div class="row  text-center">
+  <div class="col-xs-12 col-sm-3 col-md-3">
+    <h4 class="details"><br>{{'Motivation' | translate}}<br></h4>
+  </div>
+  <div class="col-xs-12 col-sm-3 col-md-3">
+    <div class="rating-stars">
+      <ul id="1" class="stars">
+        <li *ngFor="let number of [1,2,3,4,5]" class="star selected">
+          <i *ngIf="PTRating.rm >= number" class="fa fa-star fa-fw"></i>
+          <i *ngIf="validate(PTRating.rm, number)" class="fa fa-star-half fa-fw"></i>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-3 col-md-3">
+    <h4 class="details"><br>{{'Mastery' | translate}}<br></h4>
+  </div>
+  <div class="col-xs-12 col-sm-3 col-md-3">
+    <div class="rating-stars">
+      <ul id="1" class="stars">
+        <li *ngFor="let number of [1,2,3,4,5]" class="star selected">
+          <i *ngIf="PTRating.rs >= number" class="fa fa-star fa-fw"></i>
+          <i *ngIf="validate(PTRating.rs, number)" class="fa fa-star-half fa-fw"></i>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+</div>
+<div class="row  text-center">
+  <div class="col-xs-12 col-sm-3 col-md-3">
+    <h4 class="details"><br>{{'Efficiency' | translate}}<br></h4>
+  </div>
+  <div class="col-xs-12 col-sm-3 col-md-3">
+    <div class="rating-stars">
+      <ul id="1" class="stars">
+
+        <li *ngFor="let number of [1,2,3,4,5]" class="star selected">
+          <i *ngIf="PTRating.re >= number" class="fa fa-star fa-fw"></i>
+          <i *ngIf="validate(PTRating.re, number)" class="fa fa-star-half fa-fw"></i>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-3 col-md-3">
+    <h4 class="details"><br>{{'Human relations' | translate}}<br></h4>
+  </div>
+  <div class="col-xs-12 col-sm-3 col-md-3">
+    <div class="rating-stars ">
+      <ul id="1" class="stars">
+        <li *ngFor="let number of [1,2,3,4,5]" class="star selected">
+          <i *ngIf="PTRating.ri >= number" class="fa fa-star fa-fw"></i>
+          <i *ngIf="validate(PTRating.ri, number)" class="fa fa-star-half fa-fw"></i>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+</div>
+<div class="row  text-center">
+  <div class="col-xs-12 col-sm-3 col-md-3">
+    <h4 class="details"><br>{{'Methadology' | translate}}<br></h4>
+  </div>
+  <div class="col-xs-12 col-sm-3 col-md-3">
+    <div class="rating-stars col-xs-12">
+      <ul id="1" class="stars">
+        <li *ngFor="let number of [1,2,3,4,5]" class="star selected">
+          <i *ngIf="PTRating.rme >= number" class="fa fa-star fa-fw"></i>
+          <i *ngIf="validate(PTRating.rme, number)" class="fa fa-star-half fa-fw"></i>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-3 col-md-3">
+    <h4 class="details"><br>{{'Punctuality' | translate}}<br></h4>
+  </div>
+  <div class="col-xs-12 col-sm-3 col-md-3">
+    <div class="rating-stars ">
+      <ul id="1" class="stars">
+        <li *ngFor="let number of [1,2,3,4,5]" class="star selected">
+          <i *ngIf="PTRating.rp >= number" class="fa fa-star fa-fw"></i>
+          <i *ngIf="validate(PTRating.rp, number)" class="fa fa-star-half fa-fw"></i>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+</div>
+<hr>
+<div class="row">
+  <ul class="reviews">
+    <div class="row">
+    </div>
+    <li *ngFor="let review of PTReview" class="reviews">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-11">
+          <h3 class="details comment">
+            <i class="fa fa-commenting-o" aria-hidden="true"></i>
+            {{review.training_comment}}
+          </h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-6 mat-card-subtitle">
+          <em><b>{{'Accomplished' | translate}}:</b> {{review.planname}} - </em>
+          <em><b>{{'From date' | translate}}: </b> {{review.training_date_from}} -
+            {{review.training_date_to}}</em>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-3 mat-card-subtitle">
+          <em>{{'Rating' | translate}}: {{review.rsum}}</em> <i class="fa fa-star"></i>
+        </div>
+      </div>
+    </li>
+    <hr>
+  </ul>
+
+</div>

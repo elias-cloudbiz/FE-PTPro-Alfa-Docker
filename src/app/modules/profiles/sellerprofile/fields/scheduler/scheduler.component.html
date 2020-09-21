@@ -1,0 +1,156 @@
+<div class="row">
+    <div class="col-md-12 service-style text-center">
+        <h3>Booking</h3>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-3">
+        <div class="service-style text-center">
+            <h4>{{'I want to train' | translate}}:</h4>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="service-style text-center">
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker3" placeholder="Trenings dato" [value]="date.value">
+                <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                <mat-datepicker #picker3></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="col-md-1">
+        <h4>{{'Time' | translate}}:</h4>
+    </div>
+    <div class="col-md-3">
+        <mat-form-field>
+            <select matNativeControl required>
+                <option value="1200">Kl. 12:00</option>
+
+            </select>
+        </mat-form-field>
+    </div>
+    <div class="col-md-1">
+        <mat-card-actions class="text-center">
+            <button mat-stroked-button color="primary"> {{'Book now' | translate}} </button>
+        </mat-card-actions>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+
+    </div>
+</div>
+<section id="schedules">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="cd-schedule js-full">
+                <div class="timeline">
+                    <ul>
+                        <li><span>05:00</span></li>
+                        <li><span>06:00</span></li>
+                        <li><span>07:00</span></li>
+                        <li><span>08:00</span></li>
+                        <li><span>09:00</span></li>
+                        <li><span>10:00</span></li>
+                        <li><span>11:00</span></li>
+                        <li><span>12:00</span></li>
+                        <li><span>13:00</span></li>
+                        <li><span>14:00</span></li>
+                        <li><span>15:00</span></li>
+                        <li><span>16:00</span></li>
+                        <li><span>17:00</span></li>
+                        <li><span>18:00</span></li>
+                        <li><span>19:00</span></li>
+                        <li><span>20:00</span></li>
+                        <li><span>21:00</span></li>
+                        <li><span>22:00</span></li>
+                    </ul>
+                </div> <!-- .timeline -->
+                <div class="events">
+                    <ul>
+                        <li class="events-group">
+                            <div class="top-info"><span>{{getDay(0)}}</span></div>
+                            <ul>
+                                <li class="single-event" data-start="09:00" data-end="10:00" style="top: 49px; height: 101px;">
+                                    <a href="#">
+                                        <em>Time SATS</em>
+                                    </a>
+                                </li>
+                                <li class="single-event" data-start="12:00" data-end="13:30" style="top: 299px; height: 151px;">
+                                    <a href="#">
+                                        <em>Time SATS</em>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="events-group">
+                            <div class="top-info"><span>{{getDay(1)}}</span></div>
+                            <ul>
+                                <li class="single-event" data-start="9:00" data-end="10:00" style="top: -1px; height: 101px;">
+                                    <a href="#">
+                                        <em>Aktivitet</em>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="events-group">
+                            <div class="top-info"><span>{{getDay(2)}}</span></div>
+                            <ul>
+                                <li class="single-event" data-start="09:15" data-end="10:15" style="top: 24px; height: 101px;">
+                                    <a href="#">
+                                        <em>Oppfølging</em>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="events-group">
+                            <div class="top-info"><span>{{getDay(3)}}</span></div>
+                            <ul>
+                                <li class="single-event" data-start="09:30" data-end="10:30" style="top: 49px; height: 101px;">
+                                    <a href="#">
+                                        <em>Time SATS Aqua</em>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="events-group">
+                            <div class="top-info"><span>{{getDay(4)}}</span></div>
+                            <ul>
+                                <li class="single-event" data-start="10:00" data-end="11:00" style="top: 99px; height: 101px;">
+                                    <a href="#">
+                                        <em>Aktivitet: Sprint</em>
+                                    </a>
+                                </li>
+                                <li class="single-event" data-start="13:30" data-end="14:00" style="top: 349px; height: 151px;">
+                                    <a href="#">
+                                        <em>Konsultasjon</em>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="events-group">
+                            <div class="top-info"><span>{{getDay(5)}}</span></div>
+                            <ul>
+
+                            </ul>
+                        </li>
+                        <li class="events-group">
+                            <div class="top-info"><span>{{getDay(6)}}</span></div>
+                            <ul>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>

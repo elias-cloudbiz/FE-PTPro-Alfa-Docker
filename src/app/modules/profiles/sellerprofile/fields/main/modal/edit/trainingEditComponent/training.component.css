@@ -1,0 +1,17 @@
+.body {    
+  margin-bottom: 5%;
+  padding: 5px;    
+  width: 100%;
+}
+.title {
+  margin-left: 48px;
+  text-align: center;
+}
+
+.left-card {
+  width: 52%;
+}
+.right-card {
+  width:45%;
+  height: 100%;
+}

@@ -1,0 +1,146 @@
+<div class="content container ">
+
+  <section>
+    <div class="row">
+      <div class="alert alert-warning text-center">{{'Please verify account within 14 days to avoid resetting profile' | translate}}</div>
+      <hr>
+      <h2 class="text-center">{{'Statistikk' | translate}}</h2>
+      <div class="col-md-12">
+        <mat-tab-group>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon><i class="fas fa-user"></i></mat-icon>
+              &nbsp; {{'General' | translate}}
+            </ng-template>
+            <h4 class="text-center">Generell medlemskap info og verifikasjon </h4>
+            <br>
+            <table class="table table-bordered table-striped ">
+              <tr>
+                <td>{{'Membership' | translate}}</td>
+                <td>{{'Premium' | translate}}</td>
+              </tr>
+              <tr>
+                <td>{{'Membership valid until:' | translate}}</td>
+                <td>2020.06.01</td>
+              </tr>
+              <tr>
+                <td>{{'Association' | translate}}</td>
+                <td>SATS Base</td>
+              </tr>
+              <tr>
+                <td>{{'Payment option:' | translate}}</td>
+                <td>{{'Clips: Center intern' | translate}}</td>
+              </tr>
+              <tr>
+                <td>
+                  {{'Identity verification' | translate}}
+                </td>
+                <td>
+                  {{'Not verified' | translate}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{'Member verified as:' | translate}}
+                </td>
+                <td>
+                  {{'Not verified' | translate}}
+                </td>
+              </tr>
+
+            </table>
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon><i class="fas fa-chart-line"></i></mat-icon>
+              &nbsp; {{'Statistics and Marketing' | translate}}
+            </ng-template>
+            <h4 class="text-center">
+              Statistikk gir deg oversikt din profil rangering og hvordan du ligger i forhold til
+              oppnåelse av maksimum potensialet. Du kan også </h4>
+            <br>
+            <table class="table table-bordered table-striped ">
+              <tr>
+                <td>{{'Profile completion potential:' | translate}}:</td>
+                <td>{{'Achieved:' | translate}} 37% {{'out of:' | translate}} 100%</td>
+              </tr>
+              <tr>
+                <td>
+                  {{'Profile visitors' | translate}}
+                </td>
+                <td>
+                  9 {{'Unique visitors' | translate}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{'Profile evaluation:' | translate}}
+                </td>
+                <td>
+                  {{'Not evaluated' | translate}}
+                </td>
+              </tr>
+            </table>
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon> <i class="fas fa-chart-pie"></i></mat-icon>
+              &nbsp; {{'Competition:' | translate}}
+            </ng-template>
+            <div id="chartContainer" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;"></div>
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon> <i class="fas fa-funnel-dollar"></i></mat-icon>
+              &nbsp; {{'Services and addons:' | translate}}
+            </ng-template>
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon> <i class="fas fa-envelope"></i></mat-icon>
+              &nbsp; {{'Messages:' | translate}} (0)
+            </ng-template>
+          </mat-tab>
+        </mat-tab-group>
+
+      </div>
+    </div>
+    <hr>
+    <div class="row text-center">
+      <div class="col-md-4" routerLink="orders">
+        <div class="block-section">
+          <h2>{{'All orders:' | translate}} (0)</h2>
+          <h4>{{'Browse through all orders' | translate}}</h4>
+          <h4>{{'All orders are valid as proof' | translate}}</h4>
+        </div>
+      </div>
+      <div class="col-md-4" routerLink="profile">
+        <div class="block-section">
+          <h2>{{'Go to my profile' | translate}}</h2>
+          <h4>{{'Complete my profile informations' | translate}}</h4>
+        </div>
+      </div>
+      <div class="col-md-4" routerLink="settings">
+        <div class="block-section">
+          <h2>{{'Settings' | translate}}</h2>
+          <h4>{{'Account and personal settings' | translate}}</h4>
+        </div>
+      </div>
+
+    </div>
+    <!-- <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-5">
+        <div class="block-section">
+          <h2>Instillinger</h2>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="block-section">
+          <h2>Anbefalt</h2>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div> -->
+  </section>
+</div>

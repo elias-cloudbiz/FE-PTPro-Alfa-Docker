@@ -1,0 +1,88 @@
+<div class="body">
+    <div class="title">
+        <h2 mat-dialog-title >Edit PROFESSIONAL EXPERIENCE</h2>
+    </div>   
+
+    <mat-dialog-content >
+     
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field>
+                <input matInput
+                      placeholder="Title"
+                      [(ngModel)]="profileData.title" 
+                      [ngModelOptions]="{standalone: true}" 
+                      autocomplete="profile-title" 
+                      required
+                >
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+              <mat-form-field>
+                  <input matInput placeholder="Link"
+                            [(ngModel)]="profileData.link" 
+                            [ngModelOptions]="{standalone: true}" 
+                            autocomplete="profile-link" required>
+                </mat-form-field>      
+          </div>
+        </div>
+   
+        <div class="row">
+          <div class="col-md-6">            
+                <input #imageInput
+                      type="file"
+                      (change)="processFile($event)"
+                >
+                <ng-container *ngIf="imageSrc">
+                    <img id="blah1" class="img"  src="{{imageSrc}}"/>
+                </ng-container>
+                <ng-container *ngIf="!imageSrc">
+                    <img id="blah1" class="img"  src="https://material.angular.io/assets/img/examples/shiba2.jpg"/>
+                </ng-container>          
+          </div>
+
+          <div class="col-md-6">
+              <mat-form-field >
+                  <textarea matInput placeholder="Description" style="min-height: 250px"
+                        [(ngModel)]="profileData.description" 
+                        [ngModelOptions]="{standalone: true}" 
+                        autocomplete="profile-description" required>
+                  </textarea>
+              </mat-form-field>
+          </div>                  
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Datefield_from" 
+                    [(ngModel)]="profileData.datefield_from" 
+                    [ngModelOptions]="{standalone: true}" 
+                    required>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput [matDatepicker]="pickerTo" placeholder="Datefield_to" 
+                    [(ngModel)]="profileData.datefield_to" 
+                    [ngModelOptions]="{standalone: true}" 
+                    required>
+              <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+              <mat-datepicker #pickerTo></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>       
+     
+    </mat-dialog-content>
+    
+    
+    <mat-dialog-actions style="float:right">
+        <button class="mat-raised-button"(click)="close()">Close</button>
+        <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+    </mat-dialog-actions>
+</div>
+
+

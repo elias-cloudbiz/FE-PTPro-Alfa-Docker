@@ -1,0 +1,49 @@
+<div class="row ">
+  <div *ngFor="let Field of PTHealthPlans; let i=index" class="col-md-6 service-style">
+      <mat-card class="healthplan">
+          <mat-card-header>
+
+              <img mat-card-avatar
+                  src="https://image.flaticon.com/icons/png/128/88/88080.png"
+                  alt="Photo of a Shiba Inu">
+
+              <mat-card-title>
+                  <h3>{{Field.title}}</h3>
+              </mat-card-title>
+              <mat-card-subtitle>
+                  <h5><b>{{'Rating' | translate}}: {{Field.rating}}</b> <i class="fa fa-star"> </i> -
+                    {{'Price' | translate}}: {{Field.price}}NOK </h5>
+              </mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+              <h5>
+                  {{Field.description}}
+              </h5>
+
+              <div>
+                  <mat-card-actions>
+                      <div class="row">
+
+                          <div class="col-md-6 text-center">
+                              <button class="healthplan" mat-stroked-button
+                                  color="primary">
+                                  <h4> {{'Like' | translate}} <i class="fa fa-heart"></i>  </h4></button>
+                          </div>
+
+                          <div class="col-md-6 text-center" (click)="AddToServiceCart(PTHealthPlans[i], PTProfile.name)">
+                              <button class="healthplan" mat-stroked-button
+                                  color="primary">
+                                  <h4> {{'Consulation' | translate}} <i class="fa fa-user"></i>&nbsp; <i class="fa fa-envelope"></i> </h4>
+                              </button>
+                          </div>
+
+                      </div>
+
+                  </mat-card-actions>
+              </div>
+          </mat-card-content>
+      </mat-card>
+  </div>
+
+</div>

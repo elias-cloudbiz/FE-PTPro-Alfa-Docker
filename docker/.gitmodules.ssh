@@ -1,0 +1,21 @@
+[submodule "src/app/modules/application"]
+	path = src/app/modules/application
+	url = git@github.com:skyinformatics-biz/FE-PTPro-Application-Module.git
+[submodule "src/app/modules/communication"]
+	path = src/app/modules/communication
+	url = git@github.com:skyinformatics-biz/FE-PTPro-Communication-Module.git
+[submodule "src/app/modules/public"]
+	path = src/app/modules/public
+	url = git@github.com:skyinformatics-biz/FE-PTPro-Public-Module.git
+[submodule "src/app/modules/profiles"]
+	path = src/app/modules/profiles
+	url = git@github.com:skyinformatics-biz/FE-PTPro-Profiles-Module.git
+[submodule "src/app/providers"]
+	path = src/app/providers
+	url = git@github.com:skyinformatics-biz/FE-PTPro-Providers-Module.git
+[submodule "src/app/modules/secure"]
+	path = src/app/modules/secure
+	url = git@github.com:skyinformatics-biz/FE-PTPro-Secure-Module.git
+[submodule "src/app/modules/payment"]
+	path = src/app/modules/payment
+	url = git@github.com:skyinformatics-biz/FE-PTPro-Subscription-Module.git

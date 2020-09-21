@@ -1,0 +1,24 @@
+<h4 class="text-center">Ønsker du å endre fylke?</h4>
+
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    {{session.Region}}
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li *ngFor="let S of session.Fylke" (click)="setFylke(S)"><a>{{S}}</a></li>
+  </ul>
+</div>
+<br>
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    {{session.City}}
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li *ngFor="let S of session.Cities[session.Region]" (click)="setCity(S)"><a>{{S}}</a></li>
+  </ul>
+</div>
+<hr>
+<br>
+<a type="button" class="btn btn-primary" (click)="postSessionData()">Lagre</a>

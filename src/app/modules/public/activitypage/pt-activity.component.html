@@ -1,0 +1,168 @@
+<div *ngIf="loading else loaded">
+    <div class="container" class="loader">
+        <h2 class="text-center">Vent litt...</h2>
+        <mat-progress-bar mode="indeterminate" style="color:orange"></mat-progress-bar>
+    </div>
+</div>
+<ng-template #loaded>
+  
+  <div class="section-title text-center">
+
+
+      <h5 style="color: black; font-size: 22px">
+          <b>De mest aktive trenere: </b> Her finner du de mest aktive trenere og helsefaglige på siden. Kanskje er det tiden å vurdere et aktivt helsehjelp?
+      </h5>
+  </div>
+
+<!-- <section id="news" class="wow fadeInLeft" style="background: rgb(251, 251, 251); visibility: visible; animation-name: fadeInLeft;">
+  <div class="container">
+
+      <div class="row ">
+          <div class="col-lg-12 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+              <div class="section-title text-center">
+                  <h2 class="heading"><i class="fa fa-newspaper-o fa-1x" aria-hidden="true"></i> Media </h2>
+                  <small>Siste artikkler og diverse blog innlegg</small>
+
+              </div>
+              <div class="row">
+                  <div class="col-xs-5 col-lg-3">
+
+                      <h3 style="color:black;">
+                          <b>
+                              Velkommen: Trening.fit
+                          </b>
+                      </h3>
+                      <h4 style="color:black">Trening.fit er et nytt trenings forum og portal for personlige trenere.
+                          Trening.fit åpner marked for ...
+                          &nbsp; <a href="https://trening.fit/nor/blog/topic/15" style="magin-top:5px"> Les videre
+                              ...
+                              <i class="fa fa-caret-right"></i></a>
+
+                      </h4>
+                  </div>
+                  <div class="col-xs-5 col-lg-3">
+
+                      <h3 style="color:black;">
+                          <b>
+                              Kunde Guide
+                          </b>
+                      </h3>
+                      <h4 style="color:black">Trening.fit byr forbrukere&nbsp; og nye kunder et unik mulighet til å
+                          søke personlige trenere. Du få ...
+                          &nbsp; <a href="https://trening.fit/nor/blog/topic/16" style="magin-top:5px"> Les videre
+                              ...
+                              <i class="fa fa-caret-right"></i></a>
+
+                      </h4>
+                  </div>
+                  <div class="col-xs-5 col-lg-3">
+
+                      <h3 style="color:black;">
+                          <b>
+                              PT: Guide
+                          </b>
+                      </h3>
+                      <h4 style="color:black">Trening.fit byr på veldig mange muligheter for personlige trenere. Et
+                          av dem er PT-Profil som gjør p ...
+                          &nbsp; <a href="https://trening.fit/nor/blog/topic/68" style="magin-top:5px"> Les videre
+                              ...
+                              <i class="fa fa-caret-right"></i></a>
+
+                      </h4>
+                  </div>
+                  <div class="col-xs-5 col-lg-3">
+
+                      <h3 style="color:black;">
+                          <b>
+                              PT: Konk &amp; System
+                          </b>
+                      </h3>
+                      <h4 style="color:black">Trening.fit - PT Konkurranse system er tett knyttet til Instagram.com
+                          og rangerer vår beste personli ...
+                          &nbsp; <a href="https://trening.fit/nor/blog/topic/51" style="magin-top:5px"> Les videre
+                              ...
+                              <i class="fa fa-caret-right"></i></a>
+
+                      </h4>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</section> -->
+
+<!-- PT By Region -->
+<section>
+  <div id="trainers" class="content-container container" #trainers>
+      <div class="row">
+          <div class="col-xs-12">
+              <div class="section-title text-center">
+                  <h2><i class="fa fa-user fa-1x" aria-hidden="true"></i> {{Region}}</h2>
+              </div>
+          </div>
+      </div>
+      <div class="row border">
+          <div *ngFor="let PT of PTByRegion" class="col-xs-6 col-sm-3 col-md-2 col-lg-2" routerLink="/pt/{{convert(PT.name)}}">
+              <div class="trainer-list wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible">
+
+                  <img style="border-radius:5px" src="http://localhost/api-cluster/public/images/null.jpeg" alt="Personal trainer {{PT.name}}">
+                  <div class="trainer-overlay">
+                      <div class="overlay-inner">
+
+
+                      </div>
+                  </div>
+                  <div class="trainer-content">
+                      <h6>{{PT.name}}</h6>
+                      <i class="fa fa-star" aria-hidden="true" style="color:white"> {{PT.rating}}</i>
+                  </div>
+              </div>
+          </div>
+
+
+      </div>
+
+  </div>
+</section>
+<!-- End PT By Region -->
+
+
+<!-- PT By City -->
+<section>
+  <div class="content-container container">
+      <div class="row">
+          <div class="col-xs-12">
+              <div class="section-title text-center">
+                  <h2><i class="fa fa-users fa-1x" aria-hidden="true"></i> {{City}} </h2>
+
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+
+          <div *ngFor="let PT of PTByCity" class="col-xs-6 col-sm-3 col-md-2 col-lg-2" routerLink="/pt/{{convert(PT.name)}}">
+              <div class="trainer-list wow fadeInUp" data-wow-delay="0.4s">
+
+                  <img style="border-radius:15px" src="http://localhost/api-cluster/public/images/null.jpeg" alt="Personal trainer {{PT.name}}">
+                  <div class="trainer-overlay">
+                      <div class="overlay-inner">
+
+
+                      </div>
+                  </div>
+                  <div class="trainer-content">
+                      <h6>{{PT.name}}</h6>
+                      <i class="fa fa-star" aria-hidden="true" style="color:white"> {{PT.rating}}</i>
+                  </div>
+              </div>
+          </div>
+
+
+      </div>
+
+  </div>
+</section>
+<!-- End PT By City -->
+</ng-template>

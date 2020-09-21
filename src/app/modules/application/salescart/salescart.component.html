@@ -1,0 +1,106 @@
+<div class="container content">
+  <div *ngIf="!CartEmpty" class="text-center">
+    <h2>Bekreft konsultasjon og plan</h2>
+    <h4 class="alert alert-info">Du er nå et steg unna om å koble med instruktøren. Se gjennom din helseplan
+      og bekreft slik at vi kan sende en forespørsel til din nye veilider.</h4>
+  </div>
+
+  <div *ngIf="CartEmpty" class="row text-center">
+
+    <h2>Heisann!</h2>
+    <h4 class="alert alert-warning">Det ser ut som du verken har funnet en personlig trener eller helseplan!</h4>
+    <h3>Følg stegene for å komme i gang:</h3>
+    <hr>
+    <div class="col-md-4">
+      <h2>1. </h2>
+      <h4>Finn en personlig trener eller en helseplan, ved gå nedenfor.</h4>
+      <img src="https://v1.trening.fit/static/demo/PT1.JPG">
+    </div>
+
+    <div class="col-md-4">
+      <h2>2. </h2>
+      <h4>Forespør tjenesten hos tilhørende helsefaglig eller PT ved å bruke konsultasjon</h4>
+      <img src="https://v1.trening.fit/static/demo/PT2.JPG" class="rounded" alt="Steg 2"
+        style="width: 300px; height:300px; border: solid 1px black; border-radius:5px">
+        
+    </div>
+    <div class="col-md-4">
+      <h2>3. </h2>
+      <h4>Når en PT har godtatt forespørselet kan du etablere kontakt og samtale med PT og utføre betalinger!</h4>
+      <img src="https://v1.trening.fit/static/demo/PT3.JPG" class="rounded" alt="Steg 3"
+        style="width: 300px; height:300px; border: solid 1px black; border-radius:5px">
+    </div>
+  </div>
+  <div *ngIf="!CartEmpty" class="row text-center">
+    <div class="col-md-4">
+      <h4>{{ServiceCart.name}}</h4>
+      <img src="https://skyinformatics.biz/images/avatar/height_avatar.png" height="250" class="img" alt="Idrettsutøver">
+  
+    </div>
+    <div class="col-md-8">
+      <h4>Trenings og plan informasjon</h4>
+      <table class="table table-striped table-responsive-md btn-table">
+        <tr>
+          <th>
+            <h4><b>Plan tittel</b> </h4>
+          </th>
+          <th>
+            <h4><b>Beskrivelse</b></h4>
+          </th>
+
+        </tr>
+        <tr>
+          <td>
+            <h4>{{ServiceCart.title}}</h4>
+          </td>
+          <td>
+            <h4>{{ServiceCart.description}}</h4>
+          </td>
+
+        </tr>
+        <tr>
+          <th>
+            <h4><b>Plan varighet</b></h4>
+          </th>
+          <th>
+            <h4><b>Total pris</b></h4>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <h4>4 Uker</h4>
+          </td>
+          <td>
+            <h4>{{ServiceCart.price}} NOK</h4>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <br>
+  <div *ngIf="!CartEmpty" class="row text-center">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-3">
+      <a (click)="backReturn()" class="btn btn-primary">
+        <h4><i class="fas fa-arrow-left"></i> Tilbake</h4>
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a class="btn btn-primary" (click)="clearItems()">
+        <h4> <i class="fa fa-times-circle-o"></i> Avbryt konsultasjon </h4>
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a class="btn btn-primary btn-lg" (click)="postConfirmRequest()">
+        <h4><i class="fa fa-envelope"></i> Bekreft konsultasjon</h4>
+      </a>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+
+  </div>
+</div>
+<br>

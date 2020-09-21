@@ -1,0 +1,235 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{'General details' | translate}}
+    </mat-panel-title>
+    <mat-panel-description>
+      {{'Open more attributes of the profile' | translate}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <!-- Primary content -->
+
+  <div class="row details">
+      <span class="pull-right generalEdit" (click)="editGeneralDetails()">
+        <i class="fas fa-edit"></i>
+      </span>
+  </div>
+
+  
+  <h4 class="details">  
+    <!-- general start-->  
+    <ng-container *ngIf="!editable">
+      <div class="row details">
+        <div class="col-md-3"><b>{{'Fylke' | translate}}</b></div>
+        <div class="col-md-3">{{PTProfile.state}}</div>
+        <div class="col-md-3"><b>{{'Experience' | translate}}</b></div>
+        <div class="col-md-3">{{PTProfile.yearsexperience}} år</div>
+      </div>
+      <div class="row details">
+        <div class="col-md-3"><b>{{'City' | translate}}</b></div>
+        <div class="col-md-3">{{PTProfile.city}}</div>
+        <div class="col-md-3"><b>{{'Group training' | translate}}</b></div>
+        <div class="col-md-3">{{this.profile.convertBin2String(PTProfile.grouptr)}}</div>
+
+      </div>
+      <div class="row details">
+        <div class="col-md-3"><b>{{'Training studio' | translate}}</b></div>
+        <div class="col-md-3">{{PTProfile.tname}}</div>
+        <div class="col-md-3"><b>{{'Special / Disabled' | translate}}</b></div>
+        <div class="col-md-3">{{this.profile.convertBin2String(PTProfile.specialtr)}}</div>
+
+      </div>
+      <div class="row details">
+        <div class="col-md-3"><b>{{'Position' | translate}}</b></div>
+        <div class="col-md-3">{{PTProfile.positiontype}}</div>
+        <div class="col-md-3"><b>{{'Therapist' | translate}}</b></div>
+        <div class="col-md-3"> {{this.profile.convertBin2String(PTProfile.therapist)}}</div>
+
+      </div>
+      <div class="row details">
+        <div class="col-md-3"><b>{{'Education' | translate}}</b></div>
+        <div class="col-md-3">{{this.profile.convertBin2String(PTProfile.pteducation)}}</div>
+        <div class="col-md-3"><b>{{'Meet up' | translate}}</b></div>
+        <div class="col-md-3">{{PTProfile.meetup}}</div>
+      </div>
+    </ng-container>
+    <!-- general end -->
+
+    <!-- general editable start -->
+    <ng-container *ngIf="editable">
+        <div class="row details">
+          <div class="col-md-3"><b>{{'Fylke' | translate}}</b></div>
+          <div class="col-md-3">
+            <input type="text" value="{{PTProfile.state}}" [(ngModel)]="uPTProfile.state">
+          </div>
+          <div class="col-md-3"><b>{{'Experience' | translate}}</b></div>
+          <div class="col-md-3">
+            <input type="text" [(ngModel)]="uPTProfile.yearsexperience">
+          </div>
+        </div>
+        <div class="row details">
+          <div class="col-md-3"><b>{{'City' | translate}}</b></div>
+          <div class="col-md-3">
+            <input type="text" [(ngModel)]="uPTProfile.city">
+          </div>
+          <div class="col-md-3"><b>{{'Group training' | translate}}</b></div>
+          <div class="col-md-3">
+            <input type="text" [(ngModel)]="uPTProfile.grouptr">
+          </div>
+        </div>
+        <div class="row details">
+          <div class="col-md-3"><b>{{'Training studio' | translate}}</b></div>
+          <div class="col-md-3">
+            <input type="text" [(ngModel)]="uPTProfile.tname">
+          </div>
+          <div class="col-md-3"><b>{{'Special / Disabled' | translate}}</b></div>
+          <div class="col-md-3">
+            <input type="text" [(ngModel)]="uPTProfile.specialtr">
+          </div>
+  
+        </div>
+        <div class="row details">
+          <div class="col-md-3"><b>{{'Position' | translate}}</b></div>
+          <div class="col-md-3">
+            <input type="text" [(ngModel)]="uPTProfile.positiontype">
+          </div>
+          <div class="col-md-3"><b>{{'Therapist' | translate}}</b></div>
+          <div class="col-md-3"> 
+            <input type="text" [(ngModel)]="uPTProfile.therapist">
+          </div>  
+        </div>
+        <div class="row details">
+          <div class="col-md-3"><b>{{'Education' | translate}}</b></div>
+          <div class="col-md-3">
+              <input type="text" [(ngModel)]="uPTProfile.pteducation">
+          </div>
+          <div class="col-md-3"><b>{{'Meet up' | translate}}</b></div>
+          <div class="col-md-3">
+            <input type="text" [(ngModel)]="uPTProfile.meetup">
+          </div>
+        </div>
+        <div class="row">
+            <mat-dialog-actions style="float:right">
+                <button class="generalSuccess mat-raised-button btn-success"(click)="save()">Save</button>
+            </mat-dialog-actions>
+        </div>
+        
+      </ng-container>
+      <!-- general editable end -->
+
+  </h4>
+</mat-expansion-panel>
+
+
+<hr>
+<!-- open add professional experience modal -->
+<h2>{{'Professional experience' | translate}} <span (click)="openProfessionalModal()" class="ft-10"><i
+      class="fas fa-plus"></i></span>
+</h2>
+
+<!-- professional field start -->
+    <div *ngFor="let Field of PTProfileFields" class="service-style">
+        <mat-card class="example-card"> 
+          <span class="pull-right" (click)="deleteProfessional(Field)"><i
+            class="fas fa-remove"></i>
+          </span>
+          <span class="pull-right betweenEdit" (click)="editProfessionalModal(Field)"><i
+              class="fas fa-edit"></i>
+          </span>
+          
+          <mat-card-header>
+            <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-title>
+              <h3>{{Field.title}}</h3>
+            </mat-card-title>
+            <mat-card-subtitle>
+              <h5>{{Field.datefield_from}} - {{Field.datefield_to}}</h5>
+            </mat-card-subtitle>
+          </mat-card-header>
+      
+          <mat-card-content>
+            <h5>
+              {{Field.description}}
+            </h5>
+          </mat-card-content>
+        </mat-card>
+      </div>
+<!-- professional end -->
+
+<hr>
+
+<h2>{{'Qualifications' | translate}} <span class="ft-10" (click)="addQualificationModal()"><i class="fas fa-plus"></i></span></h2>
+<mat-expansion-panel *ngFor="let Field of PTQualification">
+  <span class="pull-right" (click)="deleteQualification(Field)"><i
+    class="fas fa-remove"></i>
+  </span>
+  <span class="pull-right betweenEdit" (click)="editQualificationModa(Field)"><i class="fas fa-edit"></i></span>
+  <mat-expansion-panel-header>
+
+    <mat-panel-title>
+      {{Field.title}}
+    </mat-panel-title>
+    <mat-panel-description>
+      {{Field.description}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <div class="row">
+    <h5>
+      <div class="col-md-2" *ngFor="let p of Field.participants"><i class="fa fa-user"></i>
+        <a (click)="this.profile.refreshProfileByName(p)" routerLink="/pt/{{this.profile.getUrlUserName(p)}}"
+          style="cursor:pointer">
+          {{p}}</a>
+      </div>
+    </h5>
+  </div>
+
+</mat-expansion-panel>
+<!-- Aktivity fields -->
+<hr>
+<h2>{{'Training activity' | translate}} <span class="ft-10" (click)="addTraining()"><i class="fas fa-plus"></i></span> </h2>
+<div *ngFor="let Field of PTActivityFields" class="service-style">
+  <mat-card>
+    <span class="pull-right" (click)="deleteTraining(Field)"><i
+      class="fas fa-remove"></i>
+    </span>
+    <span class="pull-right betweenEdit" (click)="editTraining(Field)"><i class="fas fa-edit"></i></span>
+    <mat-card-header>
+      <mat-card-title>
+        <h5 style="color:black">{{Field.title}}</h5>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <h5>Start: {{Field.created_at}} - Varighet:
+          {{Field.duration}} Min. - Sted: {{Field.location}}</h5>
+      </mat-card-subtitle>
+
+    </mat-card-header>
+    <mat-card-content>
+      <h5>
+        {{Field.description}}
+      </h5>
+      <div>
+        <mat-card-actions>
+          <button style="float:right" mat-stroked-button color="primary"> {{'Book now' | translate}} </button>
+        </mat-card-actions>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+<hr>
+<h2>{{'Achievements' | translate}} <span class="ft-10" (click)="addAchievements()"><i class="fas fa-plus"></i></span></h2>
+<mat-list>
+  <mat-list-item *ngFor="let Merit of PTMerits">
+      <span class="pull-right betweenEdit" (click)="deleteAchievemens(Merit)"><i
+        class="fas fa-remove"></i>
+      </span>
+    <span class="pull-right" (click)="editAchievements(Merit)"><i class="fas fa-edit"></i></span>
+    <div matLine>
+      <h3><i class="fas fa-ribbon"></i> {{Merit.title}} <em style="color:rgb(121, 121, 121)">({{Merit.year}})</em></h3>
+    </div>
+    <div matLine>
+      <h5>{{Merit.description}} </h5>
+    </div>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+
+</mat-list>

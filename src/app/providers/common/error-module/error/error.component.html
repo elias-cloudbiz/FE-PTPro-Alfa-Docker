@@ -1,0 +1,16 @@
+<div class="error-container">
+  <div class="text-center">
+    <h2 style="color:red"><i class="fa fa-times-circle" aria-hidden="true"></i> Fatal error </h2>
+    <h4><b> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> An error has occured, please refresh the
+      browser.</b> If this problem persists, please notify technical assistance!</h4>
+    <pre *ngIf="msg != undefined"><h4><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Error code : {{ routeParams?.error }}</h4></pre>
+    <hr>
+    <div class="row text-center">
+      <div class="col-md-4"></div>
+      <div class="col-md-2"><a class="btn btn-controller" routerLink="/" ><i class="fas fa-arrow-circle-left"></i> Go home</a></div>
+      <div class="col-md-2"><a class="btn btn-controller" href="/" ><i class="fas fa-power-off" ></i> Restart</a></div>
+      <div class="col-md-4"></div>
+    </div>
+    <hr>
+
+  </div>

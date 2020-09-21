@@ -1,0 +1,40 @@
+version: "3.7"
+services:
+  fe-ptpro-master:
+    image: fe-ptpro-master
+    build:
+      context: .
+      dockerfile: docker/dockerfile
+    container_name: fe-ptpro-master
+    hostname: 'localhost'
+    restart: "no"
+    tty: true
+    working_dir: /usr/www
+    environment:
+      NG_CLI_ANALYTICS: "false"
+    ports:
+      - "4800:4800"
+    volumes:
+      - ./:/usr/www
+    #command: sh -c "/tmp/submodules.sh"
+    networks:
+      - app-network
+
+  nginx-server:
+    image: nginx:alpine
+    container_name: nginx-server
+    restart: "no"
+    tty: true
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    depends_on:
+      - 'fe-ptpro-master'
+    networks:
+      - app-network
+#Docker networks
+networks:
+  app-network:
+    driver: bridge
