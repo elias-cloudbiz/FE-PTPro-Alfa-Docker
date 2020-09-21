@@ -13,6 +13,7 @@ declare global {
 }
 
 
+@Injectable()
 export class SocketEcho extends WebConfig {
 
     constructor() {

@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 
 
 
+@Injectable()
 export class ModalService {
   private modals: any[] = [];
 

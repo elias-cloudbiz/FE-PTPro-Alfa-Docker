@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, AfterViewChecked, Injectable } from '@ang
 import { RestfulAPI } from './RestfulAPI.service';
 // @ts-ignore
 import { WebConfig } from '../../webconfig'
+import { Console } from 'console';
 
 @Injectable()
 export class SessionService extends WebConfig {
@@ -13,6 +14,7 @@ export class SessionService extends WebConfig {
     public Cities: any[][] = [];
     public City: string = 'Endre by: ';
     public Region: string = 'Endre fylke: ';
+    public GeoDeviceSupport:boolean = true;
     public Identifier: string;
     public ClientIdentifier: string;
     private Lat = null;
@@ -35,87 +37,82 @@ export class SessionService extends WebConfig {
         });
     }
 
-
     initiateApp(ovveride = false) {
-        console.log("Referer " + document.referrer);
+        //console.log("Referer " + document.referrer);
         //Checking for existing identifier
-        const sessionData = JSON.parse(localStorage.getItem('SessionData'));
+        const appDevice = JSON.parse(localStorage.getItem('appDeviceId'));
 
-        if (sessionData === null || ovveride == true) {
+        if (appDevice === null || ovveride == true) {
 
             const pos = this.getLocation();
             const clientIdentifier = this.randomId(6, 'clientID012345678');
+
+            console.log("I am here" + clientIdentifier);
 
             pos.then(res => {
 
                 this.Lat = res['coords'].latitude;
                 this.Long = res['coords'].longitude;
 
-                var data = { 'lat': this.Lat, 'long': this.Long, 'referrer': document.referrer, 'appInitialID': clientIdentifier };
-                this.initiateApplication(data);
+                var data = { 'lat': this.Lat, 'long': this.Long, 'referrer': document.referrer, 'appDeviceId': clientIdentifier };
+                this.postSession(data);
 
             }).catch(err => {
                 console.log('Error IfnDef: ' + err);
-                var data = { 'lat': this.Lat, 'long': this.Long, 'referrer': document.referrer, 'appInitialID': clientIdentifier };
-                this.initiateApplication(data);
+                var data = { 'lat': this.Lat, 'long': this.Long, 'referrer': document.referrer, 'appDeviceId': clientIdentifier };
+                this.postSession(data);
             });
-
-
         }
-        else {
-            //Query server if ClientIdentifier == null
-            var data = { 'lat': sessionData['Lat'], 'long': sessionData['Long'], 'referrer': document.referrer, 'appInitialID': sessionData['ClientIdentifier'] };
-            //this.getSessionData(sessionData);
-            this.initiateApplication(data);
-
-        }
-
+         else {
+            this.getSessionData();
+        } 
     }
 
-    initiateApplication(data) {
+    postSession(postClient) {
 
-        this.API.post('session', data, 'public').subscribe(response => {
+        this.API.post('session', postClient, 'public').subscribe(response => {
+
+
 
             this.Data = response['Data'];
             this.Fylke = this.Data.map(x => x.Fylke).filter((value, index, self) => self.indexOf(value) === index);
 
+            this.GeoDeviceSupport = response['Support'];
             this.Identifier = response['Identifier'];
             this.City = response['City'];
             this.Region = response['Region'];
-            this.ClientIdentifier = response['ClientIdentifier'];
-            this.Lat = response['Lat'] = data['lat'];
-            this.Long = response['Long'] = data['long'];
+            this.ClientIdentifier = response['appDeviceId'];
+            this.Lat = response['Lat'] = postClient['lat'];
+            this.Long = response['Long'] = postClient['long'];
 
-            localStorage.setItem('SessionData', JSON.stringify(response));
+            localStorage.setItem('appDeviceId', JSON.stringify(response));
             console.log('Session Identifier exists ' + this.Identifier + "_" + this.ClientIdentifier);
 
             this.InitializeCities();
-
         });
 
     }
 
-    getSessionData(sessionData) {
+    getSessionData() {
 
         this.API.get('session','public').subscribe(response => {
 
+            this.GeoDeviceSupport = response['Support'];
             this.Data = response['Data'];
             this.Fylke = this.Data.map(x => x.Fylke).filter((value, index, self) => self.indexOf(value) === index);
 
             //Checking for existing identifier
-            var sessionData = JSON.parse(localStorage.getItem('SessionData'));
+            var sessionData = JSON.parse(localStorage.getItem('appDeviceId'));
 
             this.Identifier = response['Identifier'];
             this.ClientIdentifier = sessionData['ClientIdentifier'];
             this.City = response['City'];
             this.Region = response['Region'];
 
-            console.log('Session Identifier exists ' + this.Identifier + "_" + this.ClientIdentifier);
+            //console.log('Session Identifier exists ' + this.Identifier + "_" + this.ClientIdentifier);
 
             this.InitializeCities();
-
         });
-
     }
 
     InitializeCities() {
@@ -134,7 +131,6 @@ export class SessionService extends WebConfig {
         });
 
         this.loaded = true;
-
     }
 
 }
