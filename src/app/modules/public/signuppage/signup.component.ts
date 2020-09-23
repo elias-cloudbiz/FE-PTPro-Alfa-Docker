@@ -26,7 +26,7 @@ export class SignupComponent implements OnInit, AfterViewChecked, AfterViewInit 
     { value: 'PT', viewValue: 'Jeg er en trener, idretsutøver eller influenser.' }
   ];
 
-  private userType: any = ["Jeg søker helsehjelp eller en personlig trener", "Jeg er en personlig trener eller Instagram modell"];
+  private userType: any = ["Jeg søker trening eller livstil hjelp.", "Jeg er trenger, idrettuøver eller influenser."];
   public MembershipValue: string;
 
   PTMembership: any[] = [

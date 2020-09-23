@@ -4,34 +4,32 @@
     <mat-horizontal-stepper [linear]="isLinear" #stepper>
       <mat-step>
         <form>
-          <ng-template matStepLabel>INTRODUKSJON</ng-template>
-
+          <ng-template matStepLabel>VELKOMMEN</ng-template>
 
           <h2 class="text-center">Innmelding</h2>
-          <h4>Velkommen til til Norges nye forretings-orientert og sosial plattform for trenings aktive og
-            helsefaglig.</h4>
+          <h4>Velkommen. PTPro.FIT et sosialt plattform for kunder som søker en treningspartner eller drive treningsvirksomhet på hobby, privat eller kommersielt.</h4>
 
-          <h4>Trening.fit interaktiv web-applikasjon danner en ny profesjonell kanal mellom helsefaglige og
-            kunder, samt fremme dem for relevante og potensielle nye kunder. Vi åpner muligheter for å
-            utøve sine egne tjenester og nettverk via en og samme plattform.</h4>
+          <h4>PTPro.FIT interaktiv sosial medium som danner en ny profesjonell kanal mellom idrettsutøvere og
+            kunder, samt fremme dem for relevante og potensielle kunder. PTPro.FIT åpner muligheter for
+            trenere å praktisere sine egne tjenester og bygge nettverk via en og samme plattform.</h4>
 
-          <h4>Trening.fit er tett knyttet til Instagram og benytter seg av denne tjeneste for kunne markedsføre for
-            din aktiv livstil. Trening.fit benytter seg av teknikker som kan nå til potensielt flere tusen nye kunder
-            i ditt nær område.</h4>
+          <h4>PTPro.FIT er tett knyttet til ditt eget region og område slik at du kan enkelt komme i kontakt med eksperter i ditt område.</h4>
+
+          <h4>Klikk knappen for å prøve ut plattformen.</h4>
+
           <div class="text-center">
             <button class="next-trigger" mat-button matStepperNext> <i
                 class="fa fa-arrow-circle-o-right fa-1x icon-n-t"></i>
-              Neste </button>
+              Fortsett </button>
           </div>
 
         </form>
       </mat-step>
       <mat-step [stepControl]="firstFormGroup">
         <form [formGroup]="firstFormGroup">
-          <ng-template matStepLabel>PERSONDATA</ng-template>
+          <ng-template matStepLabel>PROFIL</ng-template>
           <div class="text-center">
-            <h4>For at vi skal kunne opprette din konto trenger vi noen generelle opplysninger om deg. Ikke korrekte
-              opplysinger kan medføre utestengelse.</h4>
+            <h4>For å opprette en profil trenger vi noen opplysinger om deg. I prøve perioden er det ikke viktig med riktig opplysinger. </h4>
             <hr>
             <mat-form-field>
               <input matInput placeholder="Fornavn" formControlName="firstCtrl" required>
@@ -72,14 +70,14 @@
       </mat-step>
       <mat-step [stepControl]="secondFormGroup">
         <form [formGroup]="secondFormGroup">
-          <ng-template matStepLabel>MEDLEMSKAP</ng-template>
+          <ng-template matStepLabel>TYPE MEDLEMSKAP</ng-template>
 
           <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
               <div class="">
 
-                <h3> Fortell litt om deg selv?</h3>
+                <h4> Velg medlemskap </h4>
                 <p>Ditt medlemskap blir opprettet basert på dine valg!</p>
              
 
@@ -128,7 +126,7 @@
             <div class="col-md-4"></div>
             <div class="col-md-4">
               <hr>
-              <h3> Når er du født?</h3>
+              <h3> Fødsels år?</h3>
               <mat-form-field>
                 <select matNativeControl required>
                   <option value="volvo">1991</option>
@@ -140,9 +138,6 @@
             </div>
             <div class="col-md-4"></div>
           </div>
-
-
-
           <div class="text-center">
             <button class="next-trigger" mat-button matStepperPrevious>Back</button>
             <button class="next-trigger" mat-button matStepperNext>Next</button>
