@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {SessionService} from '../../../providers/services/session.service';
-import { RestfulAPI } from '../../../providers/services/RestfulAPI.service';
+import { RestfulAPI } from '../../../providers/services/restfulAPI.service';
 
 import { BehaviorSubject } from 'rxjs';
 

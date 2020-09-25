@@ -1,9 +1,9 @@
 import { Injectable, ViewChild, ElementRef } from '@angular/core';
 // @ts-ignore
-import { RestfulAPI } from '../../../../providers/services/RestfulAPI.service';
-import { SharingService } from '../../../../providers/guards/sharing.service';
+import { RestfulAPI } from '../../../../providers/services/restfulAPI.service';
+import { SharingService } from '../../../../providers/guards/user-sharing.service';
 import { MessengerCore } from '../core/messenger-core.service'
-import { SocketEcho } from '../../../../providers/services/SocketEcho.service'
+import { SocketEcho } from '../../../../providers/services/socketEcho.service'
 
 @Injectable({
   providedIn: 'root'

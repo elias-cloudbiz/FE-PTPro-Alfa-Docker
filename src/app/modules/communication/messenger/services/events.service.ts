@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter, ViewChild, ElementRef } from '@angular/core';
-import { RestfulAPI } from '../../../../providers/services/RestfulAPI.service';
+import { RestfulAPI } from '../../../../providers/services/restfulAPI.service';
 
 
 @Injectable({

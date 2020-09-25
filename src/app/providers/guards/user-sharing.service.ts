@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { RestfulAPI } from '../services/RestfulAPI.service';
+import { RestfulAPI } from '../services/restfulAPI.service';
 
 @Injectable()
 export class SharingService {

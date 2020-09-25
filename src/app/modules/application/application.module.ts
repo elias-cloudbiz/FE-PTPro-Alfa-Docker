@@ -5,7 +5,7 @@ import { salesCartComponent } from './salescart/salescart.component';
 import { SessionComponent } from './sessionmanager/session.component';
 import { SessionService } from '../../providers/services/session.service';
 
-import { AuthGuardService as AuthGuard, AuthGuardRouteService } from '../../providers/guards/auth-guard.service';
+import { AuthGuardService as AuthGuard, AuthGuardRouteService } from '../../providers/guards/auth-route.service';
 @NgModule({
   declarations: [
     SessionComponent,

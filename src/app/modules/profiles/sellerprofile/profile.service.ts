@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 // @ts-ignore
 import { Location } from '@angular/common';
 // @ts-ignore
-import { RestfulAPI } from '../../../providers/services/RestfulAPI.service';
+import { RestfulAPI } from '../../../providers/services/restfulAPI.service';
 // @ts-ignore
 import { ModalService } from '../../../providers/services/modal.service';
 // @ts-ignore

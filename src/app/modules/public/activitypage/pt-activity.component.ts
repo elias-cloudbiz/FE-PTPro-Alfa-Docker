@@ -1,7 +1,7 @@
 // @ts-ignore
 import { Component, OnInit, ViewChild, AfterViewChecked } from '@angular/core';
 // @ts-ignore
-import { RestfulAPI } from '../../../providers/services/RestfulAPI.service';
+import { RestfulAPI } from '../../../providers/services/restfulAPI.service';
 
 @Component({
   selector: 'app-pt-activity',

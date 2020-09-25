@@ -6,14 +6,15 @@ import {
 import { MatDialog } from "@angular/material/dialog";
 
 import { NotificationService } from './providers/services/notification.service';
-import { AuthService } from './providers/guards/auth.service';
+import { AuthService } from './providers/guards/auth-user.service';
 import { SessionService } from './providers/services/session.service';
+import { I18nService } from './providers/services/i18n.service';
 import { StartupComponent } from './theme/dialog/startup/startup.component';
 
 @Component({
     selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    templateUrl: './root.component.html',
+    styleUrls: ['./root.component.css']
 })
 export class AppComponent implements AfterViewInit, OnInit {
     notification: string;
@@ -25,6 +26,7 @@ export class AppComponent implements AfterViewInit, OnInit {
     constructor(
         private router: Router,
         private notificationService: NotificationService,
+        private geoService: I18nService,
         public auth: AuthService,
         private session: SessionService,
         private modalService: MatDialog
@@ -33,10 +35,16 @@ export class AppComponent implements AfterViewInit, OnInit {
     }
 
     ngOnInit() {
+        /* Initiate session with centralized server */
         this.session.initiateApp();
 
+        /* Check if client device and region is supported */
         if(this.session.GeoDeviceSupport == false)
+        {
+            this.geoService.useLanguage('en');
             this.modalService.open(StartupComponent);
+        }
+            
         
     }
 

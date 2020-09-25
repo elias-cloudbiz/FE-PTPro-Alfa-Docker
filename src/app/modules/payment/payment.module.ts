@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ConfirmationpaymentComponent } from './payment/confirmationpayment.component';
-import { AuthGuardService as AuthGuard, AuthGuardRouteService } from '../../providers/guards/auth-guard.service';
+import { AuthGuardService as AuthGuard, AuthGuardRouteService } from '../../providers/guards/auth-route.service';
 
 @NgModule({
   declarations: [

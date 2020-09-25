@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ChatWindows } from '../../services/chat-windows.service';
 import { Events } from '../../services/events.service';
-import { RestfulAPI } from '../../../../../providers/services/RestfulAPI.service';
-import { SharingService } from '../../../../../providers/guards/sharing.service';
-import { SocketEcho } from '../../../../../providers/services/SocketEcho.service'
+import { RestfulAPI } from '../../../../../providers/services/restfulAPI.service';
+import { SharingService } from '../../../../../providers/guards/user-sharing.service';
+import { SocketEcho } from '../../../../../providers/services/socketEcho.service'
 
 @Component({
   selector: 'app-messages',

@@ -3,7 +3,7 @@ import { Component, OnInit, Input, ViewChild, AfterViewInit, AfterViewChecked } 
 // @ts-ignore
 import { ActivatedRoute, Router } from '@angular/router';
 // @ts-ignore
-import { SharingService } from '../../../providers/guards/sharing.service';
+import { SharingService } from '../../../providers/guards/user-sharing.service';
 
 import { ProfileService } from './profile.service';
 

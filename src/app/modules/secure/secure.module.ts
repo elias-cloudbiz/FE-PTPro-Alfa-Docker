@@ -5,8 +5,8 @@ import { OrdersComponent } from './my-details/orders/orders.component'
 import { SettingsComponent } from './my-details/settings/settings.component'
 import { MaterialModule } from '../../material.module';
 import { RouterModule } from '@angular/router';
-import { AuthGuardService as AuthGuard, AuthGuardRouteService } from '../../providers/guards/auth-guard.service';
-import { AppRoutingModule } from '../../app-routing.module';
+import { AuthGuardService as AuthGuard, AuthGuardRouteService } from '../../providers/guards/auth-route.service';
+import { AppRoutingModule } from '../../root-routing.module';
 import { ProviderModule } from '../../providers/provider.module'
 import { ClientprofileComponent } from '../profiles/clientprofile/clientprofile.component'
 

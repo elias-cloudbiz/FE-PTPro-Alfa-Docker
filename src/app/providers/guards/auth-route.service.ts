@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
-import { AuthService } from './auth.service';
-import { SharingService } from '../guards/sharing.service';
+import { AuthService } from './auth-user.service';
+import { SharingService } from './user-sharing.service';
+
 @Injectable()
 export class AuthGuardService implements CanActivate {
   constructor(public auth: AuthService, public router: Router, private account: SharingService) {}

@@ -1,14 +1,14 @@
 import { Injectable, ViewChild, ElementRef, Directive } from '@angular/core';
 
-import { RestfulAPI } from '../../../../providers/services/RestfulAPI.service';
+import { RestfulAPI } from '../../../../providers/services/restfulAPI.service';
 // @ts-ignore
-import { SocketEcho } from '../../../../providers/services/SocketEcho.service';
+import { SocketEcho } from '../../../../providers/services/socketEcho.service';
 
 import { Events } from '../services/events.service';
 
-import { AuthService } from '../../../../providers/guards/auth.service';
+import { AuthService } from '../../../../providers/guards/auth-user.service';
 
-import { SharingService } from '../../../../providers/guards/sharing.service';
+import { SharingService } from '../../../../providers/guards/user-sharing.service';
 
 import { ChatWindows } from '../services/chat-windows.service';
 

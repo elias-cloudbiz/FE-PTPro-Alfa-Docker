@@ -9,8 +9,11 @@ export class I18nService {
   languages: any = ['en', 'fr'];
 
 
-  constructor(private http: HttpClient) {}
-  use(lang: string = "no"): Promise<{}> {
+  constructor(private http: HttpClient) {
+    this.useLanguage();
+  }
+  
+  useLanguage(lang: string = "no"): Promise<{}> {
     return new Promise<{}>((resolve, reject) => {
       const langPath = `static/i18n/${lang || 'en'}.json`;
       this.http.get<{}>(langPath).subscribe(

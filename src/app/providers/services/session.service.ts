@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewChecked, Injectable } from '@angular/core';
-import { RestfulAPI } from './RestfulAPI.service';
+import { RestfulAPI } from './restfulAPI.service';
 // @ts-ignore
 import { WebConfig } from '../../webconfig'
 import { Console } from 'console';

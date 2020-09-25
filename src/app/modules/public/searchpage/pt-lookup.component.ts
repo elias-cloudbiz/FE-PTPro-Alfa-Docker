@@ -1,7 +1,7 @@
 // @ts-ignore
 import { Component, OnInit, AfterViewInit, ViewChild, AfterViewChecked } from '@angular/core';
 // @ts-ignore
-import { RestfulAPI } from '../../../providers/services/RestfulAPI.service';
+import { RestfulAPI } from '../../../providers/services/restfulAPI.service';
 // @ts-ignore
 import { PagingService } from '../../../providers/services/pagination.service';
 import { SearchProperties } from './SearchProperties';

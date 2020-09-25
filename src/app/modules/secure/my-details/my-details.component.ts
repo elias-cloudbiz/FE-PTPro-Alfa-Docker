@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RestfulAPI } from '../../../providers/services/RestfulAPI.service';
-import { SharingService } from '../../../providers/guards/sharing.service';
+import { RestfulAPI } from '../../../providers/services/restfulAPI.service';
+import { SharingService } from '../../../providers/guards/user-sharing.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({

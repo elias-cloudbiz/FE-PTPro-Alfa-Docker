@@ -9,7 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // @ts-ignore
 import { MaterialModule } from '../../material.module';
 // @ts-ignore
-import { AppRoutingModule } from '../../app-routing.module';
+import { AppRoutingModule } from '../../root-routing.module';
 // @ts-ignore
 import { ProviderModule } from '../../providers/provider.module';
 

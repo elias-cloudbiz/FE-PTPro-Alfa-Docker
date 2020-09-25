@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { WebConfig } from '../../webconfig';
 import { map } from 'rxjs/operators';
-import { RestfulAPI } from '../services/RestfulAPI.service';
-import { SocketEcho } from '../services/SocketEcho.service';
+import { RestfulAPI } from '../services/restfulAPI.service';
+import { SocketEcho } from '../services/socketEcho.service';
 
-import { SharingService } from '../guards/sharing.service';
+import { SharingService } from './user-sharing.service';
 
 
 @Injectable()

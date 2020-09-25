@@ -4,13 +4,13 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './root-routing.module';
 /** Angular: Material  **/
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /**  Root component  **/
-import { AppComponent } from './app.component';
+import { AppComponent } from './root.component';
 
 /**  Submodules  **/
 import { CommunicationModule } from './modules/communication/communication.module';
@@ -22,10 +22,10 @@ import { SecureModule } from './modules/secure/secure.module';
 import { ProviderModule } from './providers/provider.module';
 
 /**  Providers: Services  **/
-import { RestfulAPI } from './providers/services/RestfulAPI.service';
+import { RestfulAPI } from './providers/services/restfulAPI.service';
 import { WebConfig } from './webconfig';
 import { ModalService } from './providers/services/modal.service';
-import { SocketEcho } from './providers/services/SocketEcho.service';
+import { SocketEcho } from './providers/services/socketEcho.service';
 import { eventEmitterService } from './providers/services/eventEmitter.service'
 import { PagingService } from './providers/services/pagination.service';
 import { I18nService } from './providers/services/i18n.service';
@@ -33,9 +33,9 @@ import { NotificationService } from './providers/services/notification.service';
 import { TranslatePipe } from './providers/common/translation.pipe';
 
 /**  Providers: Auth  **/
-import { AuthGuardService, AuthGuardRouteService } from './providers/guards/auth-guard.service';
-import { AuthService } from './providers/guards/auth.service';
-import { SharingService } from './providers/guards/sharing.service';
+import { AuthGuardService, AuthGuardRouteService } from './providers/guards/auth-route.service';
+import { AuthService } from './providers/guards/auth-user.service';
+import { SharingService } from './providers/guards/user-sharing.service';
 
 /** Master : GUI  **/
 import { HeaderComponent } from './theme/layout/header/header.component';

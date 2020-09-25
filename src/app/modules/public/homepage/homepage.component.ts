@@ -1,7 +1,7 @@
 // @ts-ignore
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, AfterViewChecked } from '@angular/core';
 // @ts-ignore
-import { RestfulAPI } from '../../../providers/services/RestfulAPI.service';
+import { RestfulAPI } from '../../../providers/services/restfulAPI.service';
 import { SessionService } from '../../../providers/services/session.service';
 
 

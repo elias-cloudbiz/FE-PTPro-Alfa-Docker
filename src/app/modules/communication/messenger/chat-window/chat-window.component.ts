@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewChecked, ElementRef } from '@angular/core';
 import { ChatWindows } from '../services/chat-windows.service'
-import { SharingService } from '../../../../providers/guards/sharing.service';
-import { RestfulAPI } from '../../../../providers/services/RestfulAPI.service';
+import { SharingService } from '../../../../providers/guards/user-sharing.service';
+import { RestfulAPI } from '../../../../providers/services/restfulAPI.service';
 import { Events } from '../services/events.service'
 
 @Component({

@@ -1,15 +1,15 @@
 import { Component, Injectable, OnInit, Renderer2, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { MessengerCore } from './core/messenger-core.service'
 
-import { RestfulAPI } from '../../../providers/services/RestfulAPI.service';
+import { RestfulAPI } from '../../../providers/services/restfulAPI.service';
 // @ts-ignore
-import { SocketEcho } from '../../../providers/services/SocketEcho.service';
+import { SocketEcho } from '../../../providers/services/socketEcho.service';
 // @ts-ignore
 import { Events } from './services/events.service';
 // @ts-ignore
-import { AuthService } from '../../../providers/guards/auth.service';
+import { AuthService } from '../../../providers/guards/auth-user.service';
 // @ts-ignore
-import { SharingService } from '../../../providers/guards/sharing.service';
+import { SharingService } from '../../../providers/guards/user-sharing.service';
 
 import { ChatWindows } from './services/chat-windows.service';
 
