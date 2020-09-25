@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { salesCartComponent } from './salescart/salescart.component';
-import { SessionComponent } from './sessionmanager/session.component';
+import { SessionComponent } from '../../theme/dialog/sessionmanager/session.component';
 import { SessionService } from '../../providers/services/session.service';
 
 import { AuthGuardService as AuthGuard, AuthGuardRouteService } from '../../providers/guards/auth-route.service';

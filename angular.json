@@ -31,7 +31,7 @@
             ],
             "styles": [
               {
-                "input": "src/styles.css"
+                "input": "src/static/material.css"
               },
               "src/static/style.css",
               "src/static/css/animate.css",

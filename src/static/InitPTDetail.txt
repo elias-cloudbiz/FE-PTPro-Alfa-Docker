@@ -1,6 +1,0 @@
-    <script>
-        $(function () {
-            $("#tabs").tabs();
-            new ClipboardJS('#clip');
-        });
-    </script>

@@ -44,8 +44,6 @@ export class AppComponent implements AfterViewInit, OnInit {
             this.geoService.useLanguage('en');
             this.modalService.open(StartupComponent);
         }
-            
-        
     }
 
     ngAfterViewInit() {
@@ -57,7 +55,6 @@ export class AppComponent implements AfterViewInit, OnInit {
             window.location.reload();
         }
     }
-
 }
 
 
