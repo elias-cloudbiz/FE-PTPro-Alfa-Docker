@@ -19,8 +19,7 @@ import { I18nService } from '../../../providers/services/i18n.service';
 @Injectable()
 export class HeaderComponent implements OnInit, AfterViewChecked {
 
-  animal: string;
-  name: string;
+
   public Region: string;
   public miniNavigator = false;
   private SessionService: any;

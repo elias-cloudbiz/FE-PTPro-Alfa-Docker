@@ -7,15 +7,25 @@ import { MatDialogRef } from "@angular/material/dialog";
 })
 export class StartupComponent implements OnInit {
 
-  constructor(private dialogRef: MatDialogRef<StartupComponent>) { }
+  constructor(private dialogRef: MatDialogRef<StartupComponent>) {
+
+    this.dialogRef.afterClosed().subscribe(result => {
+        
+    });
+
+   }
 
   ngOnInit(): void {
+
+
   }
   save() {
     this.close();
   }
 
   close() {
-      this.dialogRef.close();
+    this.dialogRef.close();
   }
+
+
 }

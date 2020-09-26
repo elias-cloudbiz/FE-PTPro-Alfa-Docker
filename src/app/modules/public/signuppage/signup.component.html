@@ -5,7 +5,6 @@
       <mat-step>
         <form>
           <ng-template matStepLabel>VELKOMMEN</ng-template>
-
           <h2 class="text-center">Innmelding</h2>
           <h4>Velkommen. PTPro.FIT et sosialt plattform for kunder som søker en treningspartner eller drive treningsvirksomhet på hobby, privat eller kommersielt.</h4>
 
@@ -25,29 +24,28 @@
 
         </form>
       </mat-step>
-      <mat-step [stepControl]="firstFormGroup">
-        <form [formGroup]="firstFormGroup">
+      <mat-step [stepControl]="Generalprofile">
+        <form [formGroup]="Generalprofile">
           <ng-template matStepLabel>PROFIL</ng-template>
           <div class="text-center">
             <h4>For å opprette en profil trenger vi noen opplysinger om deg. I prøve perioden er det ikke viktig med riktig opplysinger. </h4>
             <hr>
-            <mat-form-field>
-              <input matInput placeholder="Fornavn" formControlName="firstCtrl" required>
+            <mat-form-field class="profile">
+              <input matInput placeholder="Fornavn" formControlName="Generalprofile" required>
             </mat-form-field>
             <br>
             <mat-form-field>
-              <input matInput placeholder="Etternavn" formControlName="firstCtrl" required>
+              <input matInput placeholder="Etternavn" formControlName="Generalprofile" required>
             </mat-form-field>
             <br>
             <mat-form-field>
-              <input matInput placeholder="E-post" formControlName="firstCtrl" required>
+              <input matInput placeholder="E-post" formControlName="Generalprofile" required>
             </mat-form-field>
             <br>
             <mat-form-field>
-              <input matInput placeholder="Mobil nummer" formControlName="firstCtrl" required>
+              <input matInput placeholder="Mobil nummer" formControlName="Generalprofile" required>
             </mat-form-field>
             <br>
-
             <mat-form-field>
               <mat-select [(value)]="session.Region" placeholder="{{session.Region}}">
                 <mat-option *ngFor="let a of session.Fylke" value="{{a}}">{{a}}</mat-option>
@@ -65,25 +63,20 @@
               <button class="next-trigger" mat-button matStepperNext> Neste </button>
             </div>
           </div>
-
         </form>
       </mat-step>
-      <mat-step [stepControl]="secondFormGroup">
-        <form [formGroup]="secondFormGroup">
+      <mat-step [stepControl]="Membership">
+        <form [formGroup]="Membership">
           <ng-template matStepLabel>TYPE MEDLEMSKAP</ng-template>
-
           <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
               <div class="">
-
                 <h4> Velg medlemskap </h4>
                 <p>Ditt medlemskap blir opprettet basert på dine valg!</p>
-             
-
               </div>
-              <mat-form-field>
-                <mat-select [(value)]="MembershipValue" placeholder="{{Memberships[0]['viewValue']}}">
+              <mat-form-field class="membership">
+                <mat-select [(value)]="MembershipValue" placeholder="{{ Memberships[0]['viewValue'] }}">
                   <mat-option *ngFor="let a of Memberships" [value]="a.value" (click)="selectMembership(a.value)">
                     {{a.viewValue}}
                   </mat-option>
@@ -109,8 +102,7 @@
 
                 </div>
                 <h4><b>Velg type medlemskap</b></h4>
-
-                <mat-form-field>
+                <mat-form-field class="membership">
                   <mat-select placeholder="{{PTMembership[0]['viewValue']}}">
                     <mat-option *ngFor="let a of PTMembership" [value]="a.value"
                       (click)="selectMembershipPackage(a.value)">

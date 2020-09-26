@@ -46,9 +46,6 @@ export class SessionService extends WebConfig {
 
             const pos = this.getLocation();
             const clientIdentifier = this.randomId(6, 'clientID012345678');
-
-            console.log("I am here" + clientIdentifier);
-
             pos.then(res => {
 
                 this.Lat = res['coords'].latitude;
@@ -67,12 +64,9 @@ export class SessionService extends WebConfig {
             this.getSessionData();
         } 
     }
-
-    postSession(postClient) {
+    postSession(postClient) : void {
 
         this.API.post('session', postClient, 'public').subscribe(response => {
-
-
 
             this.Data = response['Data'];
             this.Fylke = this.Data.map(x => x.Fylke).filter((value, index, self) => self.indexOf(value) === index);
@@ -93,7 +87,7 @@ export class SessionService extends WebConfig {
 
     }
 
-    getSessionData() {
+    getSessionData() : void {
 
         this.API.get('session','public').subscribe(response => {
 
@@ -115,7 +109,7 @@ export class SessionService extends WebConfig {
         });
     }
 
-    InitializeCities() {
+    InitializeCities() :void {
 
         var x = {};
 
@@ -133,4 +127,15 @@ export class SessionService extends WebConfig {
         this.loaded = true;
     }
 
+
+    setSession(StartupDialog, GDPRValue) : void
+    {
+        var Session = {StartupDialog: false, GDPRValue: false};
+
+        localStorage.setItem('appSession', JSON.stringify(Session));
+    }
+
+    getSession() : Array<any>{
+        return JSON.parse(localStorage.getItem('appSession'));
+    }
 }

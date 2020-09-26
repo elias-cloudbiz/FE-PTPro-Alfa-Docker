@@ -11,7 +11,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
+            "aot": false,
             "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -52,7 +52,7 @@
               "src/static/js/newsticker.js",
               "src/static/js/schedule.js",
               "src/static/js/jquery-ui.min.js",
-              "src/static/InitPTDetail.js",
+              "src/static/js/InitPTDetail.js",
               "src/static/js/script.js"
             ]
           },

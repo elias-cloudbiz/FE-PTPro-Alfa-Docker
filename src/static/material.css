@@ -1934,7 +1934,7 @@ td.mat-footer-cell {
 }
 
 .mat-form-field-label {
-  color: rgba(0, 0, 0, .6)
+  color: rgba(0, 0, 0, .6);
 }
 
 .mat-hint {

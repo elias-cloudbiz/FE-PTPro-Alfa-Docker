@@ -74,7 +74,7 @@ a:hover {
 
 /*************  Ovverides ******************/
 
-@media (min-width: 1200px) {
+ @media (min-width: 1200px) {
   .col-lg-2 {
     width: 12.5%
   }
@@ -100,7 +100,6 @@ mat-card.healthplan {
 
 
 .btn-radius {
-  /**padding: 20px !important;**/
   border-radius: 25px !important;
 }
 
@@ -127,7 +126,7 @@ mat-card.healthplan {
   background-color: #FFFFFF;
   border-color: #f65e13;
   color: #f65e13;
-}
+} 
 
 /************* Typography ******************/
 
@@ -189,12 +188,11 @@ em {
 
 h1 {
   font-size: 32px;
-  color: #fff;
+  color: #333;
   font-weight: 700;
   line-height: normal;
   margin: 0 0 10px;
   font-family: 'Dosis', sans-serif;
-  text-transform: uppercase;
 }
 
 h2 {
@@ -205,7 +203,6 @@ h2 {
   line-height: normal;
   margin: 0 0 15px;
   position: relative;
-  text-transform: uppercase;
 }
 
 h3 {
@@ -215,7 +212,6 @@ h3 {
   line-height: normal;
   margin: 0 0 5px;
   position: relative;
-  text-transform: uppercase;
   font-family: 'Dosis', sans-serif;
 }
 
@@ -251,7 +247,7 @@ h5 {
 
 h6 {
   font-size: 14px;
-  color: #ffffff;
+  color: #FFFFFF;
   font-weight: 300;
   line-height: normal;
   position: relative;

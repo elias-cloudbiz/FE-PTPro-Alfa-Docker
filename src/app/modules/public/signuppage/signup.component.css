@@ -2,6 +2,13 @@
     font-size: 22px;
 }
 
+.mat-form-field{
+    width:50%;
+}
+
+.mat-form-field.membership {
+    width:100%;
+}
 
 .icon-n-t{
     font-size: 38px;

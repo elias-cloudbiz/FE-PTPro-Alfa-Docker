@@ -18,15 +18,15 @@ import { SessionService } from '../../../providers/services/session.service'
 export class SignupComponent implements OnInit, AfterViewChecked, AfterViewInit {
 
   isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
+  Generalprofile: FormGroup;
+  Membership: FormGroup;
 
   Memberships: any[] = [
     { value: 'Client', viewValue: 'Jeg søker trening, veiledning eller kosthjelp.' },
     { value: 'PT', viewValue: 'Jeg er en trener, idretsutøver eller influenser.' }
   ];
 
-  private userType: any = ["Jeg er kunde og søker livstil og trenings hjelp.", "Jeg er selger, idrettsutøver eller influenser."];
+  private userType: any = ["Jeg er kunde og søker hjelp med livstil eller trenings.", "Jeg er selger, idrettsutøver eller influenser."];
   public MembershipValue: string;
 
   PTMembership: any[] = [
@@ -42,7 +42,8 @@ export class SignupComponent implements OnInit, AfterViewChecked, AfterViewInit 
 
 
 
-  constructor(private _formBuilder: FormBuilder, private router: Router, public session: SessionService) {
+  constructor(private _formBuilder: FormBuilder, private router: Router, public session: SessionService) 
+  {
 
   }
 
@@ -62,16 +63,12 @@ export class SignupComponent implements OnInit, AfterViewChecked, AfterViewInit 
   }
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+    this.Generalprofile = this._formBuilder.group({
+      Generalprofile: ['', Validators.required]
     });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+    this.Membership = this._formBuilder.group({
+      Membership: ['', Validators.required]
     });
-
-
-
-
   }
 
 

@@ -1,19 +1,10 @@
-<div class="body">
-    <div class="title">
-        <h2 mat-dialog-title >Geo Device</h2>
-    </div>   
-    <mat-dialog-content >
-     
-        Hello, your region is not supported.
-
-        For debugging purposes, please ignore and continue.
-
-    </mat-dialog-content>
-    
-    
-    <mat-dialog-actions style="float:right">
-        <button class="mat-raised-button"(click)="close()">Close</button>
-    </mat-dialog-actions>
-</div>
-
-
+<h2 mat-dialog-title><i class="fas fa-exclamation-triangle"></i> Geo Device</h2>
+<mat-dialog-content>
+    <h3>Hello,</h3> 
+    <h4>
+        This concept is <b>not yet supported </b> in your region. For debugging purpuse click continue.
+    </h4>
+</mat-dialog-content>
+<mat-dialog-actions style="float:right">
+  <button class="mat-raised-button mat-primary" (click)="close()">Continue</button>
+</mat-dialog-actions>
