@@ -30,11 +30,10 @@ export class HeaderComponent implements OnInit, AfterViewChecked {
     private router: Router,
     public session: SessionService,
     public authservice: AuthService,
-    private sharingservice: SharingService) {
+    private sharingservice: SharingService,
+    ) {
 
     this.SessionService = session;
-    //i18nService.use('en').then((result) => {});
-
   }
 
   getFirstName(){

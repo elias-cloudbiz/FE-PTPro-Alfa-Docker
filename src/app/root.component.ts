@@ -26,7 +26,7 @@ export class AppComponent implements AfterViewInit, OnInit {
     constructor(
         private router: Router,
         private notificationService: NotificationService,
-        private geoService: I18nService,
+        private i18n: I18nService,
         public auth: AuthService,
         private session: SessionService,
         private modalService: MatDialog
@@ -41,7 +41,7 @@ export class AppComponent implements AfterViewInit, OnInit {
         /* Check if client device and region is supported */
         if(this.session.GeoDeviceSupport == false)
         {
-            this.geoService.useLanguage('en');
+            this.i18n.useLanguage('en');
             this.modalService.open(StartupComponent);
         }
     }

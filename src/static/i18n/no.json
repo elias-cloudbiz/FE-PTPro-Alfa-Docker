@@ -5,7 +5,8 @@
     "Register": "Registrere",
     "Login": "Logg inn",
     "Consultation": "Konsultasjoner",
-    "Session in": "Sessjon i fylke",
+    "Session in": "Sessjon i",
     "Social and sales platform": "Sosial og salgsdreven plattform",
-    "Social and sales descriptive": "for brukere som ønsker en helse-plan, en profesjonell trener eller nettverk innen idrett og aktiv livstil bransje."
+    "Social and sales descriptive": "for brukere som ønsker en helse-plan, en profesjonell trener eller nettverk innen idrett og aktiv livstil bransje.",
+    "Header":{"T1":"Txt1", "T2":"Txt2"}
 }

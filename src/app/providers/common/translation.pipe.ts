@@ -7,7 +7,13 @@ import { I18nService } from '../services/i18n.service';
 })
 export class TranslatePipe implements PipeTransform {
   constructor(private translate: I18nService) {}
-  transform(key: any): any {
-    return this.translate.data[key] || key;
+  transform(key: any, args?:string): any {
+
+    if(args != null) {
+        return this.translate.data[key] || key;
+    }
+    else
+      return this.translate.data[key] || key;
+
   }
 }
