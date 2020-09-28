@@ -33,9 +33,9 @@ import { NotificationService } from './providers/services/notification.service';
 import { TranslatePipe } from './providers/common/translation.pipe';
 
 /**  Providers: Auth  **/
-import { AuthGuardService, AuthGuardRouteService } from './providers/guards/auth-route.service';
-import { AuthService } from './providers/guards/auth-user.service';
-import { SharingService } from './providers/guards/user-sharing.service';
+import { AuthGuardService, AuthGuardRouteService } from './providers/auth-gaurds/auth-route.service';
+import { AuthService } from './providers/auth-gaurds/auth-user.service';
+import { SharingService } from './providers/auth-gaurds/user-sharing.service';
 
 /** Master : GUI  **/
 import { HeaderComponent } from './theme/layout/header/header.component';

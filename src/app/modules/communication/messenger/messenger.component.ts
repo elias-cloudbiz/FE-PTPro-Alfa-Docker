@@ -7,9 +7,9 @@ import { SocketEcho } from '../../../providers/services/socketEcho.service';
 // @ts-ignore
 import { Events } from './services/events.service';
 // @ts-ignore
-import { AuthService } from '../../../providers/guards/auth-user.service';
+import { AuthService } from '../../../providers/auth-gaurds/auth-user.service';
 // @ts-ignore
-import { SharingService } from '../../../providers/guards/user-sharing.service';
+import { SharingService } from '../../../providers/auth-gaurds/user-sharing.service';
 
 import { ChatWindows } from './services/chat-windows.service';
 

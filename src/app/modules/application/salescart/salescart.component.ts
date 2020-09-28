@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { RestfulAPI } from '../../../providers/services/restfulAPI.service';
-import { SharingService } from '../../../providers/guards/user-sharing.service';
+import { SharingService } from '../../../providers/auth-gaurds/user-sharing.service';
 import { Router } from '@angular/router';
 // @ts-ignore
 import { Events } from '../../communication/messenger/services/events.service';

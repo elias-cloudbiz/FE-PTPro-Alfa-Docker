@@ -24,17 +24,17 @@ import { SchedulerComponent } from './sellerprofile/fields/scheduler/scheduler.c
 import { ClientprofileComponent } from './clientprofile/clientprofile.component';
 
 // crud components
-import { ProfessionalAddComponent } from './sellerprofile/fields/main/modal/add/professionalAddComponent/professional.component'
-import { ProfessionalEditComponent } from './sellerprofile/fields/main/modal/edit/professionalEditComponent/professional.component';
-import { QualificationAddComponent } from "./sellerprofile/fields/main/modal/add/qualificationAddComponent/qualification.component";
-import { QualificationEditComponent } from './sellerprofile/fields/main/modal/edit/qualificationEditComponent/qualification.component';
-import { TraininglAddComponent } from './sellerprofile/fields/main/modal/add/trainingAddComponent/training.component';
-import { TrainingEditComponent } from './sellerprofile/fields/main/modal/edit/trainingEditComponent/training.component';
-import { AchievementsAddComponent } from './sellerprofile/fields/main/modal/add/achievementsAddComponent/achievements.component';
-import { AchievementsEditComponent } from './sellerprofile/fields/main/modal/edit/achievementsEditComponent/achievements.component';
-import { PlanAddComponent } from './sellerprofile/fields/plans/add/planAddComponent/planAdd.component';
-import { PlanEditComponent } from './sellerprofile/fields/plans/edit/planEditComponent/planEdit.component';
-import { PlanDetailComponent } from './sellerprofile/fields/plans/add/planDetailComponent/planDetail.component';
+import { ProfessionalAddComponent } from './sellerprofile/fields/main/crud/add/professionalAddComponent/professional.component'
+import { ProfessionalEditComponent } from './sellerprofile/fields/main/crud/edit/professionalEditComponent/professional.component';
+import { QualificationAddComponent } from "./sellerprofile/fields/main/crud/add/qualificationAddComponent/qualification.component";
+import { QualificationEditComponent } from './sellerprofile/fields/main/crud/edit/qualificationEditComponent/qualification.component';
+import { TraininglAddComponent } from './sellerprofile/fields/main/crud/add/trainingAddComponent/training.component';
+import { TrainingEditComponent } from './sellerprofile/fields/main/crud/edit/trainingEditComponent/training.component';
+import { AchievementsAddComponent } from './sellerprofile/fields/main/crud/add/achievementsAddComponent/achievements.component';
+import { AchievementsEditComponent } from './sellerprofile/fields/main/crud/edit/achievementsEditComponent/achievements.component';
+import { PlanAddComponent } from './sellerprofile/fields/plans/crud/add/planAddComponent/planAdd.component';
+import { PlanEditComponent } from './sellerprofile/fields/plans/crud/edit/planEditComponent/planEdit.component';
+import { PlanDetailComponent } from './sellerprofile/fields/plans/planDetailComponent/planDetail.component';
 @NgModule({
   declarations: [
     ProfileDetailComponent,

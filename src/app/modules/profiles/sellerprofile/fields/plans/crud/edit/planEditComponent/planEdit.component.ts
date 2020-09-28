@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { ModalService } from '../../../../../../providers/services/modal.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
-import { ProfileService } from '../../../../profile.service';
+import { ProfileService } from '../../../../../profile.service';
 
 @Component({
   selector: 'app-addModal',

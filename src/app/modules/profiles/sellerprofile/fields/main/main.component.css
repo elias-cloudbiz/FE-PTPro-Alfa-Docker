@@ -83,3 +83,10 @@
     font-size: 18px;
     float: right;
 }
+.mat-form-field{
+  width: 100%;;
+}
+.mat-dialog-container{
+  max-width: 75%;
+  width: 75% !important;
+}

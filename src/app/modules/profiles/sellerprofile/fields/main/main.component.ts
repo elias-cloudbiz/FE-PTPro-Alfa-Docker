@@ -4,17 +4,17 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 
 //import Professional
-import { ProfessionalAddComponent} from './modal/add/professionalAddComponent/professional.component';
-import { ProfessionalEditComponent } from './modal/edit/professionalEditComponent/professional.component';
+import { ProfessionalAddComponent} from './crud/add/professionalAddComponent/professional.component';
+import { ProfessionalEditComponent } from './crud/edit/professionalEditComponent/professional.component';
 //import Qualifications
-import { QualificationAddComponent } from './modal/add/qualificationAddComponent/qualification.component';
-import { QualificationEditComponent } from './modal/edit/qualificationEditComponent/qualification.component';
+import { QualificationAddComponent } from './crud/add/qualificationAddComponent/qualification.component';
+import { QualificationEditComponent } from './crud/edit/qualificationEditComponent/qualification.component';
 //import TrainingModal
-import { TraininglAddComponent } from './modal/add/trainingAddComponent/training.component';
-import { TrainingEditComponent } from './modal/edit/trainingEditComponent/training.component';
+import { TraininglAddComponent } from './crud/add/trainingAddComponent/training.component';
+import { TrainingEditComponent } from './crud/edit/trainingEditComponent/training.component';
 //import Achievements
-import { AchievementsAddComponent } from './modal/add/achievementsAddComponent/achievements.component';
-import { AchievementsEditComponent } from './modal/edit/achievementsEditComponent/achievements.component';
+import { AchievementsAddComponent } from './crud/add/achievementsAddComponent/achievements.component';
+import { AchievementsEditComponent } from './crud/edit/achievementsEditComponent/achievements.component';
 
 // @ts-ignore
 import { ModalService } from '../../../../../providers/services/modal.service';

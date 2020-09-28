@@ -1,10 +1,10 @@
 // @ts-ignore
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {ProfileService} from '../../profile.service';
-import { PlanAddComponent } from './add/planAddComponent/planAdd.component';
 import { MatDialog } from "@angular/material/dialog";
-import { PlanEditComponent } from './edit/planEditComponent/planEdit.component';
-import { PlanDetailComponent } from './add/planDetailComponent/planDetail.component';
+import {ProfileService} from '../../profile.service';
+import { PlanAddComponent } from './crud/add/planAddComponent/planAdd.component';
+import { PlanEditComponent } from './crud/edit/planEditComponent/planEdit.component';
+import { PlanDetailComponent } from './planDetailComponent/planDetail.component';
 @Component({
   selector: 'app-plans',
   templateUrl: './plans.component.html',

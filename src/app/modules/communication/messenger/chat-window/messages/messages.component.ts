@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ChatWindows } from '../../services/chat-windows.service';
 import { Events } from '../../services/events.service';
 import { RestfulAPI } from '../../../../../providers/services/restfulAPI.service';
-import { SharingService } from '../../../../../providers/guards/user-sharing.service';
+import { SharingService } from '../../../../../providers/auth-gaurds/user-sharing.service';
 import { SocketEcho } from '../../../../../providers/services/socketEcho.service'
 
 @Component({

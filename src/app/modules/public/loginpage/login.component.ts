@@ -1,11 +1,11 @@
 // @ts-ignore
 import { Component, OnInit } from '@angular/core';
 // @ts-ignore
-import { AuthService } from '../../../providers/guards/auth-user.service';
+import { AuthService } from '../../../providers/auth-gaurds/auth-user.service';
 // @ts-ignore
 import { Router } from '@angular/router';
 // @ts-ignore
-import { SharingService } from '../../../providers/guards/user-sharing.service';
+import { SharingService } from '../../../providers/auth-gaurds/user-sharing.service';
 // @ts-ignore
 import { SocketEcho } from '../../../providers/services/socketEcho.service';
 // @ts-ignore

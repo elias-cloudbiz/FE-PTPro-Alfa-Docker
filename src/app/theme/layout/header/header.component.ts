@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalService } from '../../../providers/services/modal.service';
 import { RestfulAPI } from '../../../providers/services/restfulAPI.service';
-import { AuthService } from '../../../providers/guards/auth-user.service';
+import { AuthService } from '../../../providers/auth-gaurds/auth-user.service';
 import { SessionService } from '../../../providers/services/session.service';
-import { SharingService } from '../../../providers/guards/user-sharing.service';
+import { SharingService } from '../../../providers/auth-gaurds/user-sharing.service';
 import { I18nService } from '../../../providers/services/i18n.service';
 
 

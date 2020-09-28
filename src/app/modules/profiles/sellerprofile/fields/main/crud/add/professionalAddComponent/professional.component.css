@@ -1,0 +1,32 @@
+  .body {
+    margin-bottom: 3%;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .image-upload-container {
+    cursor: pointer;
+  }
+
+  .img {
+    width: 100px;
+    margin: 3px auto;
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+
+
+
+  .app-modal-window .modal-dialog {
+    width: 500px;
+  }
+
+  button{
+    margin: 5px;
+  }

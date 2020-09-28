@@ -14,7 +14,7 @@ export class I18nService {
     this.useLanguage();
   }
   
-  useLanguage(lang: string = "no"): Promise<{}> {
+  useLanguage(lang: string = "en"): Promise<{}> {
     return new Promise<{}>((resolve, reject) => {
       const langPath = `static/i18n/${lang || 'en'}.json`;
       this.http.get<{}>(langPath).subscribe(

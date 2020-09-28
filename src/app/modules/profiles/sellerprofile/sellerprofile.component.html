@@ -62,30 +62,23 @@
                                 [ngClass]="activeClass(0)">
                                 <h3><i class="fa fa-user"></i> {{'About PT' | translate}}</h3>
                             </label>
-
                             <input type="radio" class="tab col-xs-10">
                             <label for="tab2" class="tab-col col-xs-10 col-md-3" (click)="switch(1)"
                                 [ngClass]="activeClass(1)">
                                 <h3><i class="fa fa-calendar"></i>  {{'Schedule' | translate}} </h3>
                             </label>
-
                             <input type="radio" class="tab col-xs-10">
                             <label for="tab3" class="col-xs-10 col-md-3" (click)="switch(2)" [ngClass]="activeClass(2)">
                                 <h3><i class="fa fa-star"></i> {{'Reviews' | translate}} ({{this.profile.reviewLength()}}) </h3>
                             </label>
-
                             <input type="radio" class="tab col-xs-10">
                             <label for="tab5" class="col-xs-10 col-md-6" (click)="switch(4)" [ngClass]="activeClass(4)">
                                 <h3><i class="fa fa-medkit"></i> {{'Health services' | translate}} ({{this.profile.planLength()}})</h3>
                             </label>
-
                             <input type="radio" class="tab col-xs-10">
                             <label for="tab4" class="col-xs-10 col-md-6" (click)="switch(3)" [ngClass]="activeClass(3)">
                                 <h3><i class="fa fa-envelope"></i> {{'Contacts and Media' | translate}}</h3>
                             </label>
-
-
-
                         </div>
                         <hr>
                         <div [ngSwitch]="this.Tab">

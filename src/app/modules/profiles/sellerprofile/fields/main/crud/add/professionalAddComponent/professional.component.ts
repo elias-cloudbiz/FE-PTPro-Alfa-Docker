@@ -10,7 +10,7 @@ import { ProfileService } from '../../../../../profile.service';
 export class ProfessionalAddComponent implements OnInit {
  
   profileData;
-  imageSrc: string;
+  imageSrc: string = "https://skyinformatics.biz/images/avatar/height_avatar.png";
 
   constructor( private profile: ProfileService, private dialogRef: MatDialogRef<ProfessionalAddComponent>) {
   }

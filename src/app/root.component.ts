@@ -6,7 +6,7 @@ import {
 import { MatDialog } from "@angular/material/dialog";
 
 import { NotificationService } from './providers/services/notification.service';
-import { AuthService } from './providers/guards/auth-user.service';
+import { AuthService } from './providers/auth-gaurds/auth-user.service';
 import { SessionService } from './providers/services/session.service';
 import { I18nService } from './providers/services/i18n.service';
 import { StartupComponent } from './theme/dialog/startup/startup.component';
