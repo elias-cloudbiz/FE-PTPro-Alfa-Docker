@@ -99,7 +99,7 @@ export class MainComponent implements OnInit {
 
 // crud Qualification start
   addQualificationModal() {
-    this.modalService.open(QualificationAddComponent);
+    this.modalService.open(QualificationAddComponent, {width: '500px'});
   }
 
   editQualificationModa(Field) {
