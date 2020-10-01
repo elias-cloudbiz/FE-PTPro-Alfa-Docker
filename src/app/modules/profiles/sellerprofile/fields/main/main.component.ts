@@ -103,7 +103,7 @@ export class MainComponent implements OnInit {
   }
 
   editQualificationModa(Field) {
-    const modalRef = this.modalService.open(QualificationEditComponent);
+    const modalRef = this.modalService.open(QualificationEditComponent, {width: '500px'});
     modalRef.componentInstance.content = Field;
     modalRef.componentInstance.onSave = this.onSaveQualification;
   }
