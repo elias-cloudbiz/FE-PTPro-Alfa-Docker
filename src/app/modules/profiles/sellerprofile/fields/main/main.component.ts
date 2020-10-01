@@ -120,7 +120,7 @@ export class MainComponent implements OnInit {
 
 //crud Training Activity start
   addTraining(){
-    this.modalService.open(TraininglAddComponent);
+    this.modalService.open(TraininglAddComponent, {width: '700px'});
   }
   editTraining(Field) {
     const modalRef = this.modalService.open(TrainingEditComponent);

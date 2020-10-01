@@ -1,24 +1,18 @@
-<div style="margin-bottom: 10px;">
+<div style="margin-bottom: 10px">
   <h2>ADD Training Activity</h2>
 </div>
 
-<mat-dialog-content class="dg" style="padding: 0px;">
+<mat-dialog-content class="dg" style="padding: 0px">
+  <!-- First Column start -->
   <div class="col-md-6 left-card">
+    <!-- First Row start. -->
     <div class="row dg">
       <mat-form-field>
         <input matInput placeholder="Title" [(ngModel)]="trainingData.title" [ngModelOptions]="{ standalone: true }"
           autocomplete="profile-title" required />
       </mat-form-field>
     </div>
-
-    <div class="row dg">
-      <mat-form-field>
-        <textarea matInput placeholder="Description" style="min-height: 150px" [(ngModel)]="trainingData.description"
-          [ngModelOptions]="{ standalone: true }" autocomplete="profile-description" required>
-        </textarea>
-      </mat-form-field>
-    </div>
-
+    <!-- First three elements after title -->
     <div class="row dg">
       <mat-form-field>
         <input matInput [matDatepicker]="picker" placeholder="Start_datetime" [(ngModel)]="trainingData.created_at"
@@ -41,9 +35,8 @@
           [ngModelOptions]="{ standalone: true }" autocomplete="profile-link" required />
       </mat-form-field>
     </div>
-  </div>
 
-  <div class="col-md-6 right-card">
+    <!-- Last three rows of first column -->
     <div class="row dg">
       <mat-form-field>
         <input matInput placeholder="Intensity" [(ngModel)]="trainingData.intensity"
@@ -62,6 +55,18 @@
       <mat-form-field>
         <input matInput placeholder="Endurance" [(ngModel)]="trainingData.endurance"
           [ngModelOptions]="{ standalone: true }" autocomplete="profile-link" required />
+      </mat-form-field>
+    </div>
+
+    <!-- First cold End -->
+  </div>
+
+  <div class="col-md-6 right-card">
+    <div class="row dg">
+      <mat-form-field>
+        <textarea matInput placeholder="Description" style="min-height: 150px" [(ngModel)]="trainingData.description"
+          [ngModelOptions]="{ standalone: true }" autocomplete="profile-description" required>
+        </textarea>
       </mat-form-field>
     </div>
 
