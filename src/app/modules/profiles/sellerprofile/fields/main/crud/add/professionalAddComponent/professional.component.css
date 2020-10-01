@@ -13,15 +13,14 @@
   }
 
   .img {
-    width: 100px;
-    margin: 3px auto;
+    width: 300px;
+    max-height: 250px;
+    margin-bottom: 10px;
   }
 
   .mat-form-field {
     width: 100%;
   }
-
-
 
   .app-modal-window .modal-dialog {
     width: 500px;
