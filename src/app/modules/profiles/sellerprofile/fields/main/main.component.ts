@@ -123,7 +123,7 @@ export class MainComponent implements OnInit {
     this.modalService.open(TraininglAddComponent, {width: '700px'});
   }
   editTraining(Field) {
-    const modalRef = this.modalService.open(TrainingEditComponent);
+    const modalRef = this.modalService.open(TrainingEditComponent, {width: '700px'});
     modalRef.componentInstance.content = Field;
     modalRef.componentInstance.onSave = this.onSaveTraining;
   }
