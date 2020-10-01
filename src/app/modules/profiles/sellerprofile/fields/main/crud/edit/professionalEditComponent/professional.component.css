@@ -11,3 +11,9 @@
     margin: 3px auto;
     margin-bottom: 10px;
   }
+
+  .dg {
+    max-width: 100%;
+    max-height: 1005;
+    margin: 0px;
+  }
