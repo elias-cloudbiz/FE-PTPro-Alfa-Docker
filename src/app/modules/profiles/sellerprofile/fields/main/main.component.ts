@@ -140,11 +140,11 @@ export class MainComponent implements OnInit {
 
 // crud Achievements start
   addAchievements() {
-    this.modalService.open(AchievementsAddComponent);
+    this.modalService.open(AchievementsAddComponent, {width: '500px'});
   }
 
   editAchievements(Merit) {
-    const modalRef = this.modalService.open(AchievementsEditComponent);
+    const modalRef = this.modalService.open(AchievementsEditComponent, {width: '500px'});
     modalRef.componentInstance.content = Merit;
     modalRef.componentInstance.onSave = this.achievementsSave;
   }
