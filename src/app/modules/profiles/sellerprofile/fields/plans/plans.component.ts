@@ -32,7 +32,7 @@ export class PlansComponent implements OnInit {
 
   openPlansModal() {
     console.log('plan data', this.PTHealthPlans);
-    this.modalService.open(PlanAddComponent);
+    this.modalService.open(PlanAddComponent, {width: '70%'});
   }
 
   editPlansModal(Field) {
