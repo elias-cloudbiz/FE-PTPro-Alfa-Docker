@@ -36,7 +36,7 @@ export class PlansComponent implements OnInit {
   }
 
   editPlansModal(Field) {
-       const modalRef = this.modalService.open(PlanEditComponent);
+       const modalRef = this.modalService.open(PlanEditComponent, {width: '70%'});
        modalRef.componentInstance.content = Field;
        modalRef.componentInstance.onSave = this.planSave;
   }
