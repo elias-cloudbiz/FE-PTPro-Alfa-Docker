@@ -52,7 +52,7 @@ export class PlansComponent implements OnInit {
   }
 
   openPlanDetail(Field) {
-    const modalRef = this.modalService.open(PlanDetailComponent);
+    const modalRef = this.modalService.open(PlanDetailComponent, {width: '500px'});
     modalRef.componentInstance.content = Field;
   }
 
