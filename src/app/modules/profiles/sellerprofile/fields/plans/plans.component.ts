@@ -32,11 +32,11 @@ export class PlansComponent implements OnInit {
 
   openPlansModal() {
     console.log('plan data', this.PTHealthPlans);
-    this.modalService.open(PlanAddComponent);
+    this.modalService.open(PlanAddComponent, {width: '70%'});
   }
 
   editPlansModal(Field) {
-       const modalRef = this.modalService.open(PlanEditComponent);
+       const modalRef = this.modalService.open(PlanEditComponent, {width: '70%'});
        modalRef.componentInstance.content = Field;
        modalRef.componentInstance.onSave = this.planSave;
   }
@@ -52,7 +52,7 @@ export class PlansComponent implements OnInit {
   }
 
   openPlanDetail(Field) {
-    const modalRef = this.modalService.open(PlanDetailComponent);
+    const modalRef = this.modalService.open(PlanDetailComponent, {width: '500px'});
     modalRef.componentInstance.content = Field;
   }
 

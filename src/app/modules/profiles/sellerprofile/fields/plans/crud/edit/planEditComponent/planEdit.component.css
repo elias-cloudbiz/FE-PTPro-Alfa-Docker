@@ -1,8 +1,9 @@
-.body {    
+.body {
   margin-bottom: 5%;
-  padding: 20px;    
+  padding: 20px;
   width: 100%;
 }
+
 .title {
   margin-left: 48px;
 }
@@ -26,8 +27,33 @@
 }
 
 .eachCol {
-  width:30%;
+  width: 30%;
 }
+
 .betweenEdit {
-  margin-right:15px;
+  margin-right: 15px;
+}
+
+.dg {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0px;
+}
+
+button {
+  margin: 5px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.pill {
+  height: 0px;
+  border-radius: 2px;
+  /*  #9FB70A; */
+  /*  hsla(0, 0%, 75%, 0.9); */
+  color: hsla(0, 52%, 78%, 0.9);
+  border: 2px solid currentColor;
+  width: 100%;
 }

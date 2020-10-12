@@ -99,11 +99,11 @@ export class MainComponent implements OnInit {
 
 // crud Qualification start
   addQualificationModal() {
-    this.modalService.open(QualificationAddComponent);
+    this.modalService.open(QualificationAddComponent, {width: '500px'});
   }
 
   editQualificationModa(Field) {
-    const modalRef = this.modalService.open(QualificationEditComponent);
+    const modalRef = this.modalService.open(QualificationEditComponent, {width: '500px'});
     modalRef.componentInstance.content = Field;
     modalRef.componentInstance.onSave = this.onSaveQualification;
   }
@@ -120,10 +120,10 @@ export class MainComponent implements OnInit {
 
 //crud Training Activity start
   addTraining(){
-    this.modalService.open(TraininglAddComponent);
+    this.modalService.open(TraininglAddComponent, {width: '700px'});
   }
   editTraining(Field) {
-    const modalRef = this.modalService.open(TrainingEditComponent);
+    const modalRef = this.modalService.open(TrainingEditComponent, {width: '700px'});
     modalRef.componentInstance.content = Field;
     modalRef.componentInstance.onSave = this.onSaveTraining;
   }
@@ -140,11 +140,11 @@ export class MainComponent implements OnInit {
 
 // crud Achievements start
   addAchievements() {
-    this.modalService.open(AchievementsAddComponent);
+    this.modalService.open(AchievementsAddComponent, {width: '500px'});
   }
 
   editAchievements(Merit) {
-    const modalRef = this.modalService.open(AchievementsEditComponent);
+    const modalRef = this.modalService.open(AchievementsEditComponent, {width: '500px'});
     modalRef.componentInstance.content = Merit;
     modalRef.componentInstance.onSave = this.achievementsSave;
   }

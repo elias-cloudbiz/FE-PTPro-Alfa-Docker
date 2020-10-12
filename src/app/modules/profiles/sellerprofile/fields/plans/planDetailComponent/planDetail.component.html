@@ -1,24 +1,21 @@
-<div class="body">
-    <div class="title" style="text-align: center;">
-        <h2 mat-dialog-title >VIEW PLAN DETAIL</h2>
-    </div>   
-'
-    <mat-dialog-content >
-          <div class="col-md-6">
-            <mat-form-field >
-                <textarea matInput placeholder="Description" style="min-height: 300px"
-                      [(ngModel)]="planData.description" 
-                      [ngModelOptions]="{standalone: true}" 
-                      autocomplete="profile-description" required>
-                </textarea>
-              </mat-form-field>
-          </div>
-    </mat-dialog-content>
-    
-    
-    <mat-dialog-actions style="float:right">
-        <button class="mat-raised-button"(click)="close()">Close</button>
-    </mat-dialog-actions>
+<div style="margin-bottom: 10px">
+  <h2 style="text-align: center;">VIEW Plan Detail</h2>
 </div>
 
+<mat-dialog-content>
+  <div class="row dg">
+    <div class="col-md-12">
+      <mat-form-field>
+        <textarea matInput placeholder="Description" style="min-height: 300px" [(ngModel)]="planData.description"
+          [ngModelOptions]="{ standalone: true }" autocomplete="profile-description" required readonly>
+        </textarea>
+      </mat-form-field>
+    </div>
+  </div>
+</mat-dialog-content>
 
+<mat-dialog-actions style="float: right">
+  <button class="mat-raised-button mat-primary hover-class bold" (click)="close()">
+    Close
+  </button>
+</mat-dialog-actions>
