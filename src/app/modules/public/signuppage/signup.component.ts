@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit, AfterViewChecked, AfterViewInit 
   public MembershipValue: string;
 
   PTMembership: any[] = [
-    { value: 'Announce', viewValue: 'Annonse: 6 Mnd. gratis premium medlemskap' },
+    { value: 'Announce', viewValue: 'Annonse: Gratis premium medlemskap' },
     { value: 'Free', viewValue: 'Gratis medlemskap' },
     // { value: 'Premium', viewValue: 'Premium medlemskap / 99 NOK Måned' }
   ];

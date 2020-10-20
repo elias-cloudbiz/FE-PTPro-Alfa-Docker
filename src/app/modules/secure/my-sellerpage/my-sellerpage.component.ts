@@ -4,11 +4,11 @@ import { SharingService } from '../../../providers/auth-gaurds/user-sharing.serv
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-my-details',
-  templateUrl: './my-details.component.html',
-  styleUrls: ['./my-details.component.css']
+  selector: 'app-my-sellerpage',
+  templateUrl: './my-sellerpage.component.html',
+  styleUrls: ['./my-sellerpage.component.css']
 })
-export class MyDetailsComponent implements OnInit {
+export class MySellerPageComponent implements OnInit {
 
   constructor(private router: Router, private api: RestfulAPI, private uSharing: SharingService) { }
 

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MyDetailsComponent } from './my-details/my-details.component'
-import { OrdersComponent } from './my-details/orders/orders.component'
-import { SettingsComponent } from './my-details/settings/settings.component'
+import { MySellerPageComponent } from './my-sellerpage/my-sellerpage.component'
+import { OrdersComponent } from './my-sellerpage/orders/orders.component'
+import { SettingsComponent } from './my-sellerpage/settings/settings.component'
 import { MaterialModule } from '../../material.module';
 import { RouterModule } from '@angular/router';
 import { AuthGuardService as AuthGuard, AuthGuardRouteService } from '../../providers/auth-gaurds/auth-route.service';
@@ -13,7 +13,7 @@ import { ClientprofileComponent } from '../profiles/clientprofile/clientprofile.
 
 @NgModule({
   declarations: [
-    MyDetailsComponent,
+    MySellerPageComponent,
     OrdersComponent,
     SettingsComponent,
   ],
@@ -25,7 +25,7 @@ import { ClientprofileComponent } from '../profiles/clientprofile/clientprofile.
 
     // Locale routing paths
     RouterModule.forChild([
-      { path: 'my', component: MyDetailsComponent, canActivate: [AuthGuard] },
+      { path: 'my', component: MySellerPageComponent, canActivate: [AuthGuard] },
       { path: 'my/profile', component: ClientprofileComponent, canActivate: [AuthGuard] },
       { path: 'my/settings', component: SettingsComponent, canActivate: [AuthGuard] },
       { path: 'my/orders', component: OrdersComponent, canActivate: [AuthGuard] },

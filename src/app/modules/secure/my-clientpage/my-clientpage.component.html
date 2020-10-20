@@ -1,0 +1,184 @@
+<div class="content container ">
+
+  <section>
+    <div class="row">
+      <div class="alert alert-warning text-center">{{'Please verify account within 14 days to avoid resetting profile' | translate}}</div>
+      <hr>
+      <h2 class="text-center">{{'My account' | translate}}</h2>
+      <div class="col-md-12">
+        <mat-tab-group>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon><i class="fas fa-user"></i></mat-icon>
+              &nbsp; {{'General membership details' | translate}}
+            </ng-template>
+            <h4 class="text-center">Generelle detaljer og medlemskap </h4>
+            <br>
+             <!-- CONTENT -->
+            <table class="table table-bordered table-striped ">
+              <tr>
+                <td>{{'Account Type' | translate}}</td>
+                <td>{{'PTPro Seller' | translate}}</td>
+              </tr>
+              <tr>
+                <td>{{'Membership type:' | translate}}</td>
+                <td>{{'Premium subscription:' | translate}}</td>
+              </tr>
+              <tr>
+                <td>{{'Association' | translate}}</td>
+                <td>Freelancer or SATS (Training Association)</td>
+              </tr>
+              <tr>
+                <td>{{'Account verification:' | translate}}</td>
+                <td>{{'Pending' | translate}}</td>
+              </tr>
+              <tr>
+                <td>
+                  {{'Membership valid:' | translate}}
+                </td>
+                <td>
+                  {{'2021.01.01' | translate}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{'Subscription verification' | translate}}
+                </td>
+                <td>
+                  {{'Pending' | translate}}
+                </td>
+              </tr>
+            </table>
+             <!-- CONTENT -->
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon><i class="fas fa-chart-line"></i></mat-icon>
+              &nbsp; {{'Statistics and Activity' | translate}}
+            </ng-template>
+            <h4 class="text-center">
+              Statistikk og markedsføring gir innsikt i hvordan profilen din klarer kompetivt på markedsarena.
+            </h4>
+            <br> 
+            <!-- CONTENT -->
+            <table class="table table-bordered table-striped ">
+              <tr>
+                <td>{{'Profile completion' | translate}}:</td>
+                <td>{{'Achieved rating:' | translate}} 37% {{'out of:' | translate}} 100%</td>
+              </tr>
+              <tr>
+                <td>
+                  {{'Profile visitors' | translate}}
+                </td>
+                <td>
+                  9 {{'Unique visitors' | translate}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{'Profile evaluation:' | translate}}
+                </td>
+                <td>
+                  {{'Not evaluated' | translate}}
+                </td>
+              </tr>
+            </table>
+             <!-- CONTENT -->
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon> <i class="fas fa-chart-pie"></i></mat-icon>
+              &nbsp; {{'Marketshare and competition' | translate}}
+            </ng-template>  
+            <h4 class="text-center">Her kan du se din markedsandel grafisk og hvordan ligger ifh. til andre personlige trenere. </h4>
+            <br>
+            <!-- CONTENT -->
+            <!-- CONTENT -->
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon> <i class="fas fa-funnel-dollar"></i></mat-icon>
+              &nbsp; {{'Payouts and invoice' | translate}}            
+            </ng-template>
+             <!-- CONTENT -->
+             <h4 class="text-center">Se dine egne registrerte transaksjoner. </h4>
+             <br>
+            <table class="table table-bordered table-striped text-center">
+              <tr>
+                <td>
+                  {{'Membership valid:' | translate}}
+                </td>
+                <td>
+                  {{'2021.01.01' | translate}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{'Subscription verification' | translate}}
+                </td>
+                <td>
+                  {{'Pending' | translate}}
+                </td>
+              </tr>
+            </table>
+             <!-- CONTENT -->
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon> <i class="fas fa-envelope"></i></mat-icon>
+              &nbsp; {{'PTPro Notification' | translate}} (0)
+            </ng-template>
+             <!-- CONTENT -->
+             <h4 class="text-center">Generelle detaljer og medlemskap </h4>
+             <br>
+             <table class="table table-bordered table-striped text-center">
+              <tr>
+                <td>{{'Account Type' | translate}}</td>
+                <td>{{'PTPro Seller' | translate}}</td>
+              </tr>
+            </table>
+              <!-- CONTENT -->
+          </mat-tab>
+        </mat-tab-group>
+
+      </div>
+    </div>
+    <hr>
+    <div class="row text-center">
+      <div class="col-md-4" routerLink="orders">
+        <div class="block-section">
+          <h2>{{'All requests' | translate}} (0)</h2>
+          <h4>{{'See all requests from all clients including the operator.' | translate}}</h4>
+          <h4>{{'Requests are invitation to make network and bild your network.' | translate}}</h4>
+        </div>
+      </div>
+      <div class="col-md-4" routerLink="profile">
+        <div class="block-section">
+          <h2>{{'Go to my profile' | translate}}</h2>
+          <h4>{{'Create, edit, update or delete your services right on your public profile.' | translate}}</h4>
+        </div>
+      </div>
+      <div class="col-md-4" routerLink="settings">
+        <div class="block-section">
+          <h2>{{'Account settings' | translate}}</h2>
+          <h4>{{'Account settings such as, email and password etc.' | translate}}</h4>
+        </div>
+      </div>
+
+    </div>
+    <!-- <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-5">
+        <div class="block-section">
+          <h2>Instillinger</h2>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="block-section">
+          <h2>Anbefalt</h2>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div> -->
+  </section>
+</div>
