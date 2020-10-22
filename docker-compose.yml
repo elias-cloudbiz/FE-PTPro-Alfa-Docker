@@ -4,7 +4,7 @@ services:
     image: fe-ptpro-master
     build:
       context: .
-      dockerfile: docker/dockerfile
+      dockerfile: docker/dockerfile-alpha
     container_name: fe-ptpro-master
     hostname: 'localhost'
     restart: "no"
