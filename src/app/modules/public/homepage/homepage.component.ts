@@ -5,10 +5,6 @@ import { RestfulAPI } from '../../../providers/services/restfulAPI.service';
 import { SessionService } from '../../../providers/services/session.service';
 
 
-
-
-
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './homepage.component.html',
@@ -30,15 +26,15 @@ export class HomepageComponent implements OnInit, AfterViewInit, AfterViewChecke
 
 
 
-  constructor(private API: RestfulAPI) {
-
-  }
+  constructor(private API: RestfulAPI) {}
 
   ngOnInit() {
-    
+
   }
 
   ngAfterViewInit() {
+    console.log("Home");
+
     this.getHomeData();
   }
 
@@ -50,10 +46,13 @@ export class HomepageComponent implements OnInit, AfterViewInit, AfterViewChecke
         this.Region = response['State']['Name'],
         this.PTByCity = response['City']['Data'].slice(0, 16),
         this.City = response['City']['Name']
+        console.log("Home DATA");
 
       this.loading = false;
 
     });
+
+    console.log("Home Data End");
 
   }
 

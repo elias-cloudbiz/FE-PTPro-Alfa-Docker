@@ -1,6 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import {  Observable, throwError } from 'rxjs';
+import { retry, catchError } from 'rxjs/operators';
 import { WebConfig } from '../../webconfig';
 
 @Injectable()
@@ -15,7 +16,7 @@ export class RestfulAPI extends WebConfig {
     public token = '';
 
     public get(_apiUrl, headertype, params?): Observable<any> {
-        return this.http.get(`${this.url}` + _apiUrl, {headers: this.getHeaders(headertype), params});
+        return this.http.get(`${this.url}` + _apiUrl, {headers: this.getHeaders(headertype), params}).pipe(catchError(this.handleError));
     }
     public post(_apiUrl, item: any, headertype): Observable<any> {
         return this.http.post(`${this.url}` + _apiUrl, item, {headers: this.getHeaders(headertype)});
@@ -52,5 +53,16 @@ export class RestfulAPI extends WebConfig {
     public getPublicHttpHeaders(): HttpHeaders {
         return new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8', 'Authorization': 'Bearer ' + this.token });
     }
-
+    handleError(error: HttpErrorResponse) {
+        let errorMessage = 'Unknown error!';
+        if (error.error instanceof ErrorEvent) {
+          // Client-side errors
+          errorMessage = `Error: ${error.error.message}`;
+        } else {
+          // Server-side errors
+          errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+        }
+        window.alert(errorMessage);
+        return throwError(errorMessage);
+      }
 }

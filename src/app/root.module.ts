@@ -74,6 +74,7 @@ import { ErrorsComponent } from './providers/common/error-module/error/error.com
     ApplicationModule,
     PaymentModule,
     PublicModule,
+    PublicModule.forRoot({userName: 'Miss Marple'}),
     SecureModule,
     ProviderModule
   ],

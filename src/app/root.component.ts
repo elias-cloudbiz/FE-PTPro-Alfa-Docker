@@ -31,10 +31,12 @@ export class AppComponent implements AfterViewInit, OnInit {
         private session: SessionService,
         private modalService: MatDialog
     ) {
-
+        
     }
 
     ngOnInit() {
+
+
         /* Initiate session with centralized server */
         this.session.initiateApp();
 

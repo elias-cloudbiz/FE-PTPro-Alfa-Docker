@@ -1,5 +1,5 @@
 // @ts-ignore
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 // @ts-ignore
 import { RouterModule, Routes } from '@angular/router';
 // @ts-ignore
@@ -12,14 +12,12 @@ import { MaterialModule } from '../../material.module';
 import { AppRoutingModule } from '../../root-routing.module';
 // @ts-ignore
 import { ProviderModule } from '../../providers/provider.module'
-
-
 import { HomepageComponent } from './homepage/homepage.component';
 import { PTLookupComponent } from './searchpage/pt-lookup.component';
 import { PtActivityComponent } from './activitypage/pt-activity.component';
 import { SignupComponent } from './signuppage/signup.component';
 
-
+import { UserServiceConfig } from './user.service';
 
 
 @NgModule({
@@ -27,8 +25,6 @@ import { SignupComponent } from './signuppage/signup.component';
     HomepageComponent,
     PTLookupComponent,
     PtActivityComponent,
-
-
   ],
   imports: [
     CommonModule,
@@ -47,4 +43,21 @@ import { SignupComponent } from './signuppage/signup.component';
   exports: [ProviderModule]
 })
 // @ts-ignore
-export class PublicModule { }
+export class PublicModule { 
+
+    constructor(@Optional() @SkipSelf() parentModule?: PublicModule) {
+      if (parentModule) {
+        throw new Error(
+          'PublicModule is already loaded. Import it in the AppModule only');
+      }
+    }
+
+    static forRoot(config: UserServiceConfig): ModuleWithProviders<PublicModule> {
+      return {
+        ngModule: PublicModule,
+        providers: [
+          {provide: UserServiceConfig, useValue: config }
+        ]
+      };
+    }
+}

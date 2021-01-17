@@ -15,24 +15,21 @@ export class ErrorsHandler implements ErrorHandler {
     const notificationService = this.injector.get(NotificationService);
     const router = this.injector.get(Router);
 
-    console.error(error);
+    //console.error(error);
     router.navigate(['/error'], { queryParams: { error: error.status } });
 
-    // if (error instanceof HttpErrorResponse) {
-    //   // Server error happened
-    //   if (!navigator.onLine) {
-    //     // No Internet connection
-    //     return notificationService.notify('No Internet Connection');
-    //   }
-    //   // Http Error
-    //   return notificationService.notify(`${error.status} - ${JSON.stringify(error)}`);
-    // } else {
-    //   // Client Error Happend
-    //   router.navigate(['/error'], { queryParams: { error: error.status } });
-    // }
-
-
-
+    if (error instanceof HttpErrorResponse) {
+      // Server error happened
+      if (!navigator.onLine) {
+        // No Internet connection
+        return notificationService.notify('No Internet Connection');
+      }
+      // Http Error
+      return notificationService.notify(`${error.status} - ${JSON.stringify(error)}`);
+    } else {
+      // Client Error Happend
+      router.navigate(['/error'], { queryParams: { error: error.status } });
+    }
   }
 }
 
