@@ -33,8 +33,6 @@ export class HomepageComponent implements OnInit, AfterViewInit, AfterViewChecke
   }
 
   ngAfterViewInit() {
-    console.log("Home");
-
     this.getHomeData();
   }
 
@@ -46,14 +44,10 @@ export class HomepageComponent implements OnInit, AfterViewInit, AfterViewChecke
         this.Region = response['State']['Name'],
         this.PTByCity = response['City']['Data'].slice(0, 16),
         this.City = response['City']['Name']
-        console.log("Home DATA");
 
       this.loading = false;
 
     });
-
-    console.log("Home Data End");
-
   }
 
 
