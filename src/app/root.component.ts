@@ -38,7 +38,7 @@ export class AppComponent implements AfterViewInit, OnInit {
 
 
         /* Initiate session with centralized server */
-        this.session.initiateApp();
+        //this.session.initiateApp();
 
         /* Check if client device and region is supported */
         if(this.session.GeoDeviceSupport == false)
